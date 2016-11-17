@@ -1,0 +1,6 @@
+#!/bin/bash
+# Shell script. Author - XAOC
+
+[ $1 ] && num=$1 || num=25
+
+< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c$num

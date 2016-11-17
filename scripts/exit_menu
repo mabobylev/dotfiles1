@@ -1,0 +1,31 @@
+#!/bin/bash
+# Shell script. Author - XAOC
+
+
+#zenity --list --radiolist --title="Сжатие архива файлов" --text="Выберите способ сжатия архива файлов:" --column="Отметка выбора" --column="Утилита сжатия" FALSE zip TRUE gzip FALSE bzip2 FALSE 7zip
+
+#CMD="TRUE exit FALSE reboot FALSE poweroff"
+#CMD=`zenity --list --radiolist --title="Завершение работы" --text="0" --column="1" --column="2" $CMD`
+
+CMD="exit
+reboot
+poweroff"
+CMD=`echo "$CMD" | dmenu -nb '#2f343f' -nf '#f3f4f5' -fn 'Play -12'`
+
+#Меню выхода из системы
+case $CMD in
+    exit)
+        CMD="i3-msg exit"
+        ;;
+    reboot)
+        CMD="systemctl reboot"
+        ;;
+    poweroff)
+        CMD="systemctl poweroff"
+        ;;
+    *)
+        exit 0
+        ;;
+esac
+$CMD
+

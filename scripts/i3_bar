@@ -1,0 +1,77 @@
+#!/usr/bin/sh
+# vim:ts=4:sw=4:expandtab
+
+## TODO:
+
+echo '{ "version": 1 }['
+echo '[]'
+
+COL_DEF=#fbf1c7 # 2aa198
+COL_ACT=#fe8019 # f3f4f5
+COL_INA=#32302f # 676E7D
+COL_RED=#cc241d # cb4b16
+COLORI3="$COL_DEF"
+
+function Probel(){
+echo -ne '{"full_text":" "},'
+}
+
+function getMoc() {
+COLORI3="$COL_INA"
+local mocstat=''
+local mocsong='off'
+if [ -n "$(pgrep mocp)" ]; then
+    local mocstat=$(mocp --info | grep 'State')
+    local mocsong=$(mocp -Q'%title')
+    if [ "$mocsong" = '' ]; then
+        mocsong='No title'
+    fi
+    COLORI3="$COL_ACT"
+fi
+echo -ne '{"full_text":"♬ '$mocstat' - '$mocsong'","color":"'$COLORI3'"},'
+}
+
+function getLang() {
+COLORI3="$COL_DEF"
+local lng=
+[ "`xset -q | awk -F \" \" '/Group 2/ {print($4)}'`" = "on" ] && lng="ru" || lng="en"
+[ "$lng" = "ru" ] && COLORI3="$COL_RED"
+echo -ne '{"full_text":"'$lng'","color":"'$COLORI3'"},'
+}
+
+function getVol() {
+COLORI3="$COL_DEF"
+local vol="$(amixer -c 0 get Master | grep -E -o '[0-9]{1,3}?%' | head -1)"
+[ "$vol" = "100%" ] && COLORI3="$COL_ACT"
+echo -ne '{"full_text":"🔊 '$vol'","color":"'$COLORI3'"},'
+}
+
+function getDay() {
+COLORI3="$COL_DEF"
+local day="$(date +'%a, %d %b')"
+[ "$(date +'%u')" -gt "5" ] && COLORI3="$COL_RED"
+echo -ne '{"full_text":"🗓 '$day'","color":"'$COLORI3'"},'
+}
+
+function getTme() {
+COLORI3="$COL_DEF"
+local tme="$(date +'%R')"
+[[ "$(date +'%H')" < "06" && "$(date +'%H')" > "21" ]] && COLORI3="$COL_ACT"
+echo -ne '{"full_text":" '$tme'","color":"'$COLORI3'"},'
+}
+
+function getNet() {
+eth=$(cat /sys/class/net/enp2s0/operstate)
+wif=$(cat /sys/class/net/wlp3s6/operstate)
+icn=""
+COLORI3="$COL_RED"
+[[ "$eth" = "up" || "$wif" = "up" ]] && COLORI3="$COL_ACT"
+[ "$wif" = "up" ] && icn=""
+echo -ne '{ "full_text":"'$icn'","color":"'$COLORI3'" }'
+}
+
+while :;
+do
+    echo -e ',['$(Probel)$(getMoc)$(getLang)$(getVol)$(getDay)$(getTme)$(getNet)']'
+    sleep 5
+done

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+    exit 0
+fi
+
+osd='osd_cat -o -90 -s 1 -d 1 -p bottom -A center -f -*-terminus-*-r-*-*-32-*-*-*-*-*-*-u'
+#-monotype-*-bold-*-*-*-32-*-*-*-*-*-*-u'
+
+killall osd_cat 2>/dev/null
+
+case $1 in
+    toggle)
+        amixer -c 0 sset Master toggle | tail -1 | awk '{print $7}' | $osd &
+        ;;
+    vol_up)
+        amixer -c 0 sset Master,0 3+ unmute | tail -1 | awk '{print $5}' | $osd &
+        ;;
+    vol_dn)
+        amixer -c 0 sset Master,0 3- unmute | tail -1 | awk '{print $5}' | $osd &
+        ;;
+    *)
+        exit 0
+        ;;
+esac
