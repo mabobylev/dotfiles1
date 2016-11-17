@@ -156,7 +156,10 @@ set laststatus=2
 
 " To  show special characters in Vim
 set list
-set listchars=tab:▸\ ,eol:¬"
+"set listchars=tab:▸\ ,eol:¬"
+set listchars=tab:»\ ,eol:¶,trail:·,extends:❯,precedes:❮,nbsp:×
+set showbreak=↪
+set tildeop "~"
 
 set magic
 
