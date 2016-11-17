@@ -125,6 +125,7 @@ set pastetoggle=<F2>
 set completeopt+=menu
 set wildmenu
 set wildmode=list:longest
+set omnifunc=syntaxcomplete#Complete
 
 "*****************************************************************************
 "" Visual Settings
