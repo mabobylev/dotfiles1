@@ -1,4 +1,4 @@
-"" Last update: 17.11.2016 00:59
+"" Last update: 01.12.2016 20:59
 " vim: filetype=vim
 "*****************************************************************************
 "" Vim-PLug core
@@ -115,6 +115,7 @@ set smartcase
 set nobackup
 set noswapfile
 
+setlocal cm=blowfish
 set fileformats=unix,dos,mac
 set showcmd
 set shell=/bin/sh
@@ -154,6 +155,7 @@ set mousemodel=popup
 
 "" Status bar
 set laststatus=2
+set showtabline=2
 
 " To  show special characters in Vim
 set list

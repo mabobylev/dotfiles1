@@ -22,17 +22,14 @@ snet='\uF2F7' #
 swif='\uF35C' #
 
 getVol() {
-	vol=$(amixer get Master | grep -E -o '[0-9]{1,3}?%' | head -1)
-	echo -ne "\x0A$svol\x01$vol"
+    vol=$(amixer get Master | grep -E -o '[0-9]{1,3}?%' | head -1)
+    printf "%b" "\x0A$svol\x01$vol"
 }
 
 getDate() {
-	dat=$(date +"%a, %d.%m.%y")
-	clk=$(date +"%R")
-	echo -ne "\x0A$scal\x01$dat\x0A$sclk\x01$clk"
+    dat=$(date +"%a, %d.%m.%y")
+    clk=$(date +"%R")
+    printf "%b" "\x0A$scal\x01$dat\x0A$sclk\x01$clk"
 }
 
-while true; do
-	xsetroot -name "$(getVol)$(getDate)                          "
-	sleep 3s
-done
+xsetroot -name "$(getVol)$(getDate)                          "

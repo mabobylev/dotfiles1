@@ -52,6 +52,9 @@ set $black       	#282828
 set $darkblack   	#1d2021
 set $transparent 	#00000000
 
+#User terminal
+set $term "termite -e /usr/bin/fish"
+
 #GAPS settings
 set $default_gaps_inner 5
 set $default_gaps_outer 5
@@ -110,11 +113,11 @@ bindsym $mod+Tab focus right
 #lock screen
 bindsym $mod+Scroll_Lock exec lock
 # start a terminal i3-sensible-terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec $term
 # kill focused window
 bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -nb '#1d2021' -nf '#ebdbb2' -sb '#d79921' -fn 'Play -14'
+bindsym $mod+d exec dmenu_run -nb "$darkblack" -nf "$darkblue" -sb "$darkblack" -sf "$darkyellow" -fn 'Play -12'
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
@@ -209,7 +212,7 @@ bindsym $mod+Shift+e exec --no-startup-id exit_menu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym j resize shrink width 10 px or 10 ppt
+    bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
@@ -228,43 +231,43 @@ set $mode_gaps_inner inner gaps
 bindsym $mod+Shift+g mode "$mode_gaps"
 mode "$mode_gaps" {
     bindsym o      mode "$mode_gaps_outer"
-    bindsym i      mode "$mode_gaps_inner"
+        bindsym i      mode "$mode_gaps_inner"
 
-    bindsym 0      mode "default", exec --no-startup-id i3-msg "gaps inner current set 0" && i3-msg "gaps outer current set 0"
-    bindsym d      mode "default", exec --no-startup-id i3-msg "gaps inner current set $default_gaps_inner" && i3-msg "gaps outer current set $default_gaps_outer"
+        bindsym 0      mode "default", exec --no-startup-id i3-msg "gaps inner current set 0" && i3-msg "gaps outer current set 0"
+        bindsym d      mode "default", exec --no-startup-id i3-msg "gaps inner current set $default_gaps_inner" && i3-msg "gaps outer current set $default_gaps_outer"
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
 }
 
 mode "$mode_gaps_inner" {
     bindsym plus  gaps inner current plus 5
-    bindsym minus gaps inner current minus 5
-    bindsym 0     mode "default", gaps inner current set 0
-    bindsym d     mode "default", gaps inner current set $default_gaps_inner
+        bindsym minus gaps inner current minus 5
+        bindsym 0     mode "default", gaps inner current set 0
+        bindsym d     mode "default", gaps inner current set $default_gaps_inner
 
-    bindsym Shift+plus  gaps inner all plus 5
-    bindsym Shift+minus gaps inner all minus 5
-    bindsym Shift+0     mode "default", gaps inner all set 0
-    bindsym Shift+d     mode "default", gaps inner all set $default_gaps_inner
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     mode "default", gaps inner all set 0
+        bindsym Shift+d     mode "default", gaps inner all set $default_gaps_inner
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
 }
 
 mode "$mode_gaps_outer" {
     bindsym plus  gaps outer current plus 5
-    bindsym minus gaps outer current minus 5
-    bindsym 0     mode "default", gaps outer current set 0
-    bindsym d     mode "default", gaps outer current set $default_gaps_outer
+        bindsym minus gaps outer current minus 5
+        bindsym 0     mode "default", gaps outer current set 0
+        bindsym d     mode "default", gaps outer current set $default_gaps_outer
 
-    bindsym Shift+plus  gaps outer all plus 5
-    bindsym Shift+minus gaps outer all minus 5
-    bindsym Shift+0     mode "default", gaps outer all set 0
-    bindsym Shift+d     mode "default", gaps outer all set $default_gaps_outer
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     mode "default", gaps outer all set 0
+        bindsym Shift+d     mode "default", gaps outer all set $default_gaps_outer
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
 }
 
 
@@ -327,25 +330,25 @@ client.background       $black
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	position	top
-		strip_workspace_numbers	yes
-		font pango:Play, FontAwesome 12
-		separator_symbol	"⟨"
-		status_command      ~/.local/bin/i3_bar
+    position	top
+        strip_workspace_numbers	yes
+        font pango:Play, FontAwesome 12
+        separator_symbol	"⟨"
+        status_command      ~/.local/bin/i3_bar
 #		status_command      i3blocks
-		tray_output 		primary
-		tray_padding 1
+        tray_output 		primary
+        tray_padding 1
 #    height 34
-		colors {
-        statusline         $darkwhite
-        background         $darkblack
-        separator          $darkblue
+        colors {
+            statusline         $darkwhite
+                background         $darkblack
+                separator          $darkblue
 
-#                          BORDER       BACKGROUND   TEXT
-        focused_workspace  $darkblack	$darkblack	 $darkyellow
-        inactive_workspace $darkblack 	$darkblack	 $darkblue
-        active_workspace   $white		$white  	 $darkblack
-        urgent_workspace   $darkred     $darkred     $darkblack
-        binding_mode       $darkred     $darkred     $darkblack
-		}
+#                                   BORDER       BACKGROUND  TEXT
+                focused_workspace  $black       $darkblack  $darkyellow
+                inactive_workspace $black       $darkblack  $darkblue
+                active_workspace   $darkblue    $white      $darkblack
+                urgent_workspace   $darkyellow  $darkred    $darkblack
+                binding_mode       $black       $darkred    $darkblack
+        }
 }
