@@ -17,9 +17,9 @@ alias ls='ls --color=auto'
 alias ll='ls -la'
 
 # PROMPT
-PS1='\W \$ '
+PS1='\W$(__git_ps1 " (%s)") \$ '
 
-export HISTCONTROL=ignoredups
+export HISTCONTROL=erasedups
 
 # Some functions
 man() {
@@ -33,5 +33,12 @@ man() {
         LESS_TERMCAP_us=$'\e[01;32m' \
         man "$@"
 }
+# Display error codes
+EC() {
+	echo -e '\e[1;33m'code $?'\e[m\n'
+}
+trap EC ERR
+
+source /usr/share/doc/pkgfile/command-not-found.bash
 
 exec /usr/bin/fish

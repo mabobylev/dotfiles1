@@ -163,8 +163,20 @@ d/home
 	xaoc
 4
 d/home/xaoc
-	templates
-9
+	documents
+2
+d/home/xaoc/documents
+	..
+0
+d/home/xaoc
+	downloads
+4
+d/home/xaoc/downloads
+	..
+0
+d/home/xaoc
+	downloads
+4
 d
 
 # Right window history (oldest to newest):

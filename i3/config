@@ -2,7 +2,7 @@
 #			 MAIN CONFIGURATION
 # ************************************************************************
 set $mod Mod4
-font pango:Play 12
+font pango:Play, FontAwesome 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

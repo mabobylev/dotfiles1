@@ -37,4 +37,4 @@ SET fish_pager_color_completion:\x1d
 SET fish_pager_color_description:B3A06D\x1eyellow
 SET fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SET fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SET fish_user_abbreviations:\x1d
+SET fish_user_abbreviations:gcom\x20git\x20commit\x1egco\x20git\x20checkout\x1egpus\x20git\x20push\x1egstat\x20git\x20status\x1ecdot\x20cd\x20/home/xaoc/dotfiles/\x1egadd\x20git\x20add
