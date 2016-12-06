@@ -1,29 +1,34 @@
-#include ".gruvbox-dark"
-#include ".urxvtrc"
+!#include ".gruvbox-dark"
 
-!Xft.dpi: 96
+! Black + DarkGrey
+*color0:  #000000
+*color8:  #555753
+! DarkRed + Red
+*color1:  #ff6565
+*color9:  #ff8d8d
+! DarkGreen + Green
+*color2:  #93d44f
+*color10: #c8e7a8
+! DarkYellow + Yellow
+*color3:  #eab93d
+*color11: #ffc123
+! DarkBlue + Blue
+*color4:  #204a87
+*color12: #3465a4
+! DarkMagenta + Magenta
+*color5:  #ce5c00
+*color13: #f57900
+!DarkCyan + Cyan (both not tango)
+*color6:  #89b6e2
+*color14: #46a4ff
+! LightGrey + White
+*color7:  #cccccc
+*color15: #ffffff
+
+!Xft.dpi: 101
 !Xft.antialias: true
 !Xft.hinting: true
 !Xft.rgba: rgb
 !Xft.autohint: false
 !Xft.hintstyle: hintfull
 !Xft.lcdfilter: lcddefault
-
-! rofi
-rofi.modi: run
-rofi.font: Play 12
-rofi.width: 100
-rofi.lines: 5
-rofi.columns: 1
-rofi.opacity: 80
-!                    bg       fg      altbg    hlbg     hlfg
-rofi.color-normal: #1d2021, #ebdbb2, #282828, #ebdbb2, #282828
-rofi.color-urgent: #1d2021, #ebdbb2, #282828, #ebdbb2, #282828
-rofi.color-active: #1d2021, #ebdbb2, #282828, #ebdbb2, #282828
-rofi.color-window: #1d2021, #1d2021
-rofi.bw: 0
-rofi.location: 2
-rofi.padding: 100
-rofi.fuzzy: false
-
-

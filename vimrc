@@ -1,4 +1,4 @@
-"" Last update: 01.12.2016 20:59
+"" Last update: 06.12.2016 16:13
 " vim: filetype=vim
 "*****************************************************************************
 "" Vim-PLug core
@@ -26,8 +26,8 @@ call plug#begin(expand('~/.vim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-"colorschemes
 Plug 'morhetz/gruvbox'
+Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-surround'
 Plug 'shougo/neocomplete.vim'
 Plug 'shougo/neosnippet.vim'
@@ -125,8 +125,6 @@ set pastetoggle=<F2>
 "" Enhance command-line completion
 set completeopt+=menu
 set wildmenu
-set wildmode=list:longest
-set omnifunc=syntaxcomplete#Complete
 
 "*****************************************************************************
 "" Visual Settings
