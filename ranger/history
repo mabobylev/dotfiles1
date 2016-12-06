@@ -1,0 +1,8 @@
+Q
+AliasCommand 
+find 
+find F
+open_with vim
+open_with 
+touch 
+delete
