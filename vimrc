@@ -1,5 +1,5 @@
-"" Last update: 06.12.2016 16:13
-" vim: filetype=vim
+"" Last update: 07.12.2016 15:15
+" vim:filetype=vim
 "*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
@@ -60,9 +60,16 @@ endif
 call plug#end()
 
 " Required:
-filetype on
-filetype indent on
+"filetype on
+"filetype indent on
 filetype plugin indent on
+set autoindent nosmartindent breakindent
+set hidden
+set showcmd
+set nowrap       " Do not wrap long lines
+set lbr          " Better line wrapping (keep words entire)
+set noet         " Do not expand tab as multiple spaces"
+syntax on
 
 "*****************************************************************************
 "" Basic Setup
@@ -129,7 +136,6 @@ set wildmenu
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
-syntax on
 set ruler
 set rnu
 set t_Co=256

@@ -21,16 +21,16 @@ workspace_auto_back_and_forth yes
 # ************************************************************************
 
 # names of workspaces
-set $WS1  "1:  "
-set $WS2  "2:  "
-set $WS3  "3:  "
-set $WS5  "4:  "
-set $WS4  "5:  "
-set $WS6  "6:  "
-set $WS7  "7:  "
-set $WS8  "8:  "
-set $WS9  "9:  "
-set $WS10 "0:  "
+set $WS1  "1:"
+set $WS2  "2:"
+set $WS3  "3:"
+set $WS4  "4:"
+set $WS5  "5:"
+set $WS6  "6:"
+set $WS7  "7:"
+set $WS8  "8:"
+set $WS9  "9:"
+set $WS10 "0:"
 
 ## colors of Arc-dark theme
 set $bordc #5294E2
@@ -62,7 +62,6 @@ set $tranc #00000000
 
 #set $terminal "termite -e /usr/bin/fish"
 
-
 #                       border      background    text      indicator
 client.focused          $bordc      $bordc        $textc    $indic
 client.unfocused        $backc      $backc        $textc    $indic
@@ -82,7 +81,7 @@ assign [class="(?i)jetbrains-studio"] $WS4
 assign [class="(?i)Gimp"] $WS5
 assign [class="(?i)Pidgin"] $WS6
 assign [instance="^sunvox"] $WS7
-assign [class="(?i)MPlayer|(?i)Vlc"] $WS7
+assign [class="(?i)Vlc"] $WS7
 assign [instance="^VCLSalFrame"] $WS8
 assign [instance="^libreoffice|^soffice"] $WS8
 assign [class="^Steam" instance="^Steam"] $WS9
@@ -257,21 +256,23 @@ bindsym --release $mod+Print exec --no-startup-id import -window root /tmp/lates
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	position top
-	strip_workspace_numbers yes
+    position top
+        strip_workspace_numbers yes
         separator_symbol "⟨"
         status_command ~/.local/bin/i3_bar
-	tray_output primary
-	tray_padding 1
-	colors {
-		statusline $textc
-		background $backc
-		separator  $inacc
-#				   BORDER  BACKGR  FOREGR
+        tray_output primary
+        tray_padding 1
+        colors {
+            statusline $textc
+                background $backc
+                separator  $inacc
+#                                   BORDER  BACKGR  FOREGR
                 focused_workspace  $bordc  $backc  $textc
                 inactive_workspace $inacc  $backc  $inacc
                 active_workspace   $backc  $inacc  $textc
                 urgent_workspace   $backc  $urgtc  $backc
                 binding_mode       $backc  $tranc  $tranc
-	}
+        }
 }
+
+# vim:filetype=i3

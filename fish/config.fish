@@ -8,3 +8,20 @@
 #if status --is-login
 #    set PATH $PATH /usr/bin /sbin
 #end
+# vim: ft=sh
+
+function e
+    eval $EDITOR $argv
+end
+
+function ev
+    eval $EDITOR ~/dotfiles/vimrc
+end
+
+function ewm
+    eval $EDITOR ~/dotfiles/i3/config
+end
+
+function yaupg
+    yaourt -Syyua --noconfirm
+end

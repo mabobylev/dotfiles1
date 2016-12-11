@@ -1,5 +1,5 @@
 !#include ".gruvbox-dark"
-#include ".solarized-dark
+#include ".solarized-dark"
 
 !! Black + DarkGrey
 !*color0:  #000000
@@ -33,3 +33,31 @@
 !Xft.autohint: false
 !Xft.hintstyle: hintfull
 !Xft.lcdfilter: lcddefault
+
+rofi.opacity: 75
+rofi.terminal: x-terminal-emulator
+!rofi.key: F12
+!rofi.rkey: mod1+F2
+!rofi.skey: mod1+F3
+!rofi.switchers: window,run,ssh,Workspace:i3_switch_workspaces.sh
+rofi.width: 50
+rofi.lines: 30
+rofi.columns: 1
+rofi.font: Play 12
+! ------------------------------------------------------------------------------
+! ! ROFI Color theme
+! ! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #2f343f, #f3f4f5, #3f3f3f
+rofi.color-normal: #2f343f, #f3f4f5, #3f3f3f, #dcdccc, #2f343f
+rofi.color-active: #2f343f, #f3f4f5, #3f3f3f, #dcdccc, #2f2f2f
+rofi.color-urgent: #002b37, #da4281, #002b37, #003642, #da4281
+rofi.loc: 1
+rofi.padding: 1
+rofi.yoffset: -1
+rofi.xoffset: 0
+rofi.fixed-num-lines: false
+rofi.hmode: false
+rofi.ssh-set-title: true
+rofi.disable-history: false
+!rofi.levenshtein-sort: true
