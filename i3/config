@@ -13,8 +13,9 @@ popup_during_fullscreen ignore
 force_display_urgency_hint 0ms
 focus_on_window_activation urgent
 floating_minimum_size -1 x -1
-floating_maximum_size -1 x -1
+#floating_maximum_size 1440 x 900
 workspace_auto_back_and_forth yes
+focus_follows_mouse no
 
 # ************************************************************************
 #			  SET ENVIRONMENT
@@ -22,51 +23,53 @@ workspace_auto_back_and_forth yes
 
 # names of workspaces
 set $WS1  "1:"
-set $WS2  "2:"
+set $WS2  "2:"
 set $WS3  "3:"
 set $WS4  "4:"
-set $WS5  "5:"
-set $WS6  "6:"
-set $WS7  "7:"
+set $WS5  "5:"
+set $WS6  "6:"
+set $WS7  "7:"
 set $WS8  "8:"
 set $WS9  "9:"
-set $WS10 "0:"
+set $WS10 "0:"
 
-## colors of Arc-dark theme
-set $bordc #5294E2
-set $backc #2f343f
-set $textc #f3f4f5
-set $indic #00ff00
-set $inacc #676E7D
-set $urgtc #e53935
+# colors of Groovebox-dark theme
+set $backc #282828
+set $textc #e9dab2
+set $indic #fe8019
+set $inacc #504945
 
-## colors of Groovebox-dark theme
-## black
-#set $bordc #282828
-## darkblack
-#set $backc #1d2021
-## white
-#set $textc #ebdbb2
-## blue
-#set $indic #83a598
-## black
-#set $inacc #1d2021
-## dred
-#set $urgtc #cc241d
-##
-## d79921 dyellow,  white, a89984 dwhite
-## 458588 dblue, b8bb26 green,
-## 98971a dgreen, fb4934 red, 8ec07c cyan
-##
-set $tranc #00000000
+set $black #1d2021
 
-#set $terminal "termite -e /usr/bin/fish"
+client.focused          $textc $inacc $textc $indic
+client.unfocused        $inacc $black $inacc $indic
+client.focused_inactive $backc $inacc $inacc $indic
+client.urgent           $inacc $indic $textc $indic
 
-#                       border      background    text      indicator
-client.focused          $bordc      $bordc        $textc    $indic
-client.unfocused        $backc      $backc        $textc    $indic
-client.focused_inactive $backc      $backc        $inacc    $indic
-client.urgent           $urgtc      $urgtc        $textc    $indic
+# ************************************************************************
+#			 BAR CONFIGURATION
+# ************************************************************************
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    position top
+        strip_workspace_numbers yes
+        separator_symbol "⟨"
+        status_command ~/.local/bin/i3_bar
+        tray_output primary
+        tray_padding 1
+        colors {
+            statusline $textc
+                background $backc
+                separator  $inacc
+#                                   BORDER  BACKGR  FOREGR
+                focused_workspace  $backc  $backc  $textc
+                inactive_workspace $backc  $backc  $inacc
+                active_workspace   $bordc  $backc  $indic
+                urgent_workspace   $backc  $backc  $indic
+                binding_mode       $bordc  $indic  $backc
+        }
+}
 
 # ************************************************************************
 #			 WIN CONFIGURATION
@@ -74,7 +77,7 @@ client.urgent           $urgtc      $urgtc        $textc    $indic
 # Automatically putting clients on specific workspaces
 assign [instance="(?i)urxvt"] $WS1
 assign [instance="(?i)termite"] $WS1
-assign [class="(?i)Uzbl|(?i)Firefox|(?i)luakit"] $WS2
+assign [class="(?i)Uzbl|(?i)Firefox|(?i)luakit|(?i)Chromium"] $WS2
 assign [class="^URxvt$" instance="^fmterm$"] $WS3
 assign [class="(?i)Spacefm|(?i)Nautilus|(?i)Thunar|(?i)Pcmanfm"] $WS3
 assign [class="(?i)jetbrains-studio"] $WS4
@@ -88,7 +91,7 @@ assign [class="^Steam" instance="^Steam"] $WS9
 assign [class="(?i)Wine"] $WS9
 
 # Arbitrary commands for specific windows (for_window)
-for_window [class="(?i)Firefox|(?i)chromium" instance="^mail.google.com$"] floating enable, focus
+for_window [class="(?i)Firefox|(?i)chromium"] focus
 for_window [class="(?i)Pidgin|(?i)Gpicview|(?i)Lxappearance"] floating enable
 for_window [class="(?i)Gimp|(?i)Nautilus|(?i)Spacefm|(?i)Thunar|(?i)Pcmanfm"] floating enable, focus
 for_window [class="Pavucontrol|Pavumeter|Paman"] floating enable, focus
@@ -97,8 +100,9 @@ for_window [class="^Mplayer$"] floating enable, sticky enable
 for_window [class="^Vlc$"] floating enable, focus
 for_window [instance="^fmterm$"] floating enable, border normal
 for_window [instance="^VCLSalFrame"] focus
-for_window [instance="^soffice"] floating enable
+#for_window [instance="^soffice"] floating enable
 for_window [instance="^sunvox"] floating enable
+for_window [instance="^qpaeq"] floating enable
 for_window [instance="^ranger$"] move scratchpad
 for_window [instance="^irssi$"] move scratchpad
 
@@ -106,7 +110,7 @@ for_window [window_role="pop-up"] floating enable,move absolute center
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="Preferences"] floating enable
-#for_window [title="Preferences$"] floating enable
+for_window [title="Preferences$"] floating enable
 
 
 # ************************************************************************
@@ -122,7 +126,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -nb "$backc" -nf "$inacc" -sb "$bordc" -sf "$textc" -fn "Play 12"
+bindsym $mod+d exec dmenu_run -nb "$backc" -nf "$textc" -fn "Play 12"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -153,21 +157,21 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+h split h exec --no-startup-id notify-send "Splitting horizontally"
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+v split v exec --no-startup-id notify-send "Splitting vertically"
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking exec notify-send "STACKING mode"
+bindsym $mod+w layout tabbed exec notify-send "TABBED mode"
+bindsym $mod+e layout toggle split exec notify-send "Toggle SPLIT mode"
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle exec notify-send "Toggle FLOAT mode"
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -215,7 +219,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec ~/.local/bin/i3_exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -243,36 +248,30 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+set $mode_system System (l)ock, (e)xit, (r)eboot, (s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id ~/.local/bin/i3_exit lock, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
+
 # custom keybinding
+bindsym --release $mod+Print exec --no-startup-id import -window root /tmp/latest-screenshot.png
 bindsym mod1+F2 exec --no-startup-id rofi -show run
 bindsym mod1+Tab exec --no-startup-id rofi -show window
-bindsym mod1+w exec --no-startup-id pidof firefox || firefox
-bindsym --release $mod+Print exec --no-startup-id import -window root /tmp/latest-screenshot.png
+bindsym mod1+w exec --no-startup-id pidof chromium || chromium
+bindsym mod1+Shift+w exec --no-startup-id pidof firefox || firefox
 
-
-# ************************************************************************
-#			 BAR CONFIGURATION
-# ************************************************************************
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-    position top
-        strip_workspace_numbers yes
-        separator_symbol "⟨"
-        status_command ~/.local/bin/i3_bar
-        tray_output primary
-        tray_padding 1
-        colors {
-            statusline $textc
-                background $backc
-                separator  $inacc
-#                                   BORDER  BACKGR  FOREGR
-                focused_workspace  $bordc  $backc  $textc
-                inactive_workspace $inacc  $backc  $inacc
-                active_workspace   $backc  $inacc  $textc
-                urgent_workspace   $backc  $urgtc  $backc
-                binding_mode       $backc  $tranc  $tranc
-        }
-}
-
-# vim:filetype=i3
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+ unmute
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- unmute
+#bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ '-5%'
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ '+5%'
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+# vim:filetype=i3:nospell

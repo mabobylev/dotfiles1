@@ -4,5 +4,6 @@ find
 find F
 open_with vim
 touch 
-delete
 open_with 
+d
+delete

@@ -175,8 +175,44 @@ d/home/xaoc/downloads
 	..
 0
 d/home/xaoc
+	rt-magnet
+9
+d/home/xaoc/rt-magnet
+	..
+0
+d/home/xaoc
+	go
+5
+d/home/xaoc/go
+	..
+0
+d/home/xaoc
 	downloads
 4
+d/home/xaoc/downloads
+	..
+0
+d/home/xaoc
+	dotfiles
+3
+d/home/xaoc/dotfiles
+	..
+0
+d/home/xaoc
+	documents
+2
+d/home/xaoc/documents
+	..
+0
+d/home/xaoc
+	desktop
+1
+d/home/xaoc/desktop
+	..
+0
+d/home/xaoc
+	desktop
+1
 d
 
 # Right window history (oldest to newest):
@@ -189,6 +225,7 @@ D
 :colorscheme Default
 :help
 :qw
+:rm -rf
 :q
 
 # Search history (oldest to newest):
@@ -198,10 +235,15 @@ D
 # Local filter history (oldest to newest):
 
 # Registers:
+""/home/xaoc/.local/share/vifm/Trash/000_???????
 
 # Directory stack (oldest to newest):
 
 # Trash content:
+t/home/xaoc/.local/share/vifm/Trash/000_rt-magnet
+	/home/xaoc/rt-magnet
+t/home/xaoc/.local/share/vifm/Trash/000_???????
+	/home/xaoc/documents/???????
 
 # State:
 f

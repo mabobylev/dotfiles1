@@ -21,7 +21,7 @@ allow_markup = yes
 #   %I  iconname (without its path)
 #   %p  progress value if set ([  0%] to [100%]) or nothing
 # Markup is allowed
-format = "<b>%s</b>\n%b"
+format = "<b>%s</b>\n%b %p"
 
 # Sort messages by urgency.
 sort = yes
@@ -145,7 +145,7 @@ browser = /usr/bin/firefox
 icon_position = left
 
 # Paths to default icons.
-icon_folders = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
+icon_folders = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/apps/
 
 [frame]
 width = 1
@@ -175,12 +175,12 @@ context = ctrl+shift+period
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
-background = "#282828"
+background = "#1d2021"
 foreground = "#ebdbb2"
 timeout = 3
 
 [urgency_normal]
-background = "#1d2021"
+background = "#303132"
 foreground = "#ebdbb2"
 timeout = 3
 

@@ -8,7 +8,6 @@
 #if status --is-login
 #    set PATH $PATH /usr/bin /sbin
 #end
-# vim: ft=sh
 
 function e
     eval $EDITOR $argv
@@ -25,3 +24,13 @@ end
 function yaupg
     yaourt -Syyua --noconfirm
 end
+
+function weather
+    curl wttr.in/ulyanovsk
+end
+
+function myip
+    curl ifconfig.co
+end
+
+# vim: ft=sh:

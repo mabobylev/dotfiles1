@@ -1,4 +1,4 @@
-"" Last update: 07.12.2016 15:15
+"" Last update: 18.12.2016 00:24
 " vim:filetype=vim
 "*****************************************************************************
 "" Vim-PLug core
@@ -27,7 +27,6 @@ call plug#begin(expand('~/.vim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'morhetz/gruvbox'
-Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-surround'
 Plug 'shougo/neocomplete.vim'
 Plug 'shougo/neosnippet.vim'
@@ -42,7 +41,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
-Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+Plug 'hail2u/vim-css3-syntax'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript']  }
 Plug 'othree/html5.vim', { 'for': ['html', 'javascript']  }
 Plug 'gorodinskiy/vim-coloresque'
@@ -50,7 +49,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'fatih/vim-go', { 'for': 'go'  }
 Plug 'nsf/gocode', { 'for': 'go'  }
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
@@ -137,8 +136,9 @@ set wildmenu
 "" Visual Settings
 "*****************************************************************************
 set ruler
+set nu
 set rnu
-set t_Co=256
+"set t_Co=256
 set matchpairs+=<:> " показывать совпадающие скобки для HTML-тегов
 set showmatch " показывать первую парную скобку после ввода второй
 set autoread " перечитывать изменённые файлы автоматически
@@ -147,12 +147,12 @@ set splitright
 set splitbelow
 set cursorline
 set cursorcolumn
-set background=dark
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
   colorscheme gruvbox
 endif
+set background=dark
 
 set mouse=a
 set mousemodel=popup
@@ -169,6 +169,8 @@ set showbreak=↪
 set tildeop "~"
 
 set magic
+set modeline
+set modelines=5
 
 "*****************************************************************************
 "" vim-airline

@@ -1,0 +1,71 @@
+#минимальное число пиров на торрент
+min_peers = 1
+
+#максимальное число пиров на торрент
+max_peers = 1000
+
+#максимальная скорость загрузки
+download_rate = 0
+
+#максимальная скорость отдачи. 0 - не ограничена
+upload_rate = 0
+
+#каталог для сохранения закачек или откуда будут сидироваться торренты.
+directory = ~/downloads/
+
+#каталог куда будет сохраняться состояние торрентов.
+#Здесь, в этом примере, они сохраняются в папку  session
+session = ~/.config/rtorrent/
+
+#rtorrent каждые 5 секунд проверяет этот каталог на новые *.torrent файлы
+schedule = watch_directory,5,5,"load_start=~/downloads/torrents/*.torrent"
+
+#проверяет каталоги 2 и 3 на *.torrent файлы и сохраняет закачки в соответствующие папки
+schedule = watch_directory_2,5,5,"load_start=~/downloads/torrents/vid/*.torrent,d.set_directory=/home/xaoc/videos"
+schedule = watch_directory_3,5,5,"load_start=~/downloads/torrents/mus/*.torrent,d.set_directory=/home/xaoc/music"
+#schedule = watch_directory_4,5,5,"load_start=~/torrent_auto_load_4/*.torrent,d.set_directory=/home/user/download4"
+
+#номер порта (или нескольких портов) который открывает клиент для обмена данными
+port_range = 40890-40890
+
+#случайный выбор порта для обмена данными. В данном случае он отключён
+port_random = no
+
+#проверять хэш торрента после закачки
+check_hash = yes
+
+#сохранять сессию
+session_save = yes
+
+#принимать зашифр. вход. соединения, устанавливать незашифр. исх. соединения,
+#если возвращает ошибку, повторять с шифрованием, предпочитать открытый текст после установления
+#зашифрованного соединения
+encryption = allow_incoming,enable_retry,prefer_plaintext
+
+system.umask.set = 022
+#Выдавать сообщение об окончании загрузки
+system.method.set_key = event.download.finished,notify_me,"execute=notify-send,$d.get_name="
+
+
+#использовать udp
+use_udp_trackers = yes
+
+# Разрешает работу DHT для безтрекерных торрентов или для случаев, когда все ретрекеры лежат
+# (не работают).
+# Может принимать значения "disable" (для полного отключения DHT), "off" (не стартует с DHT),
+# "auto" (Включает DHT при возможности), или "on" (принудительно включает DHT).
+# Значение DHT по умолчанию "off". Для правильной работы DHT каталог сеансов "session" должен
+# быть определен.
+#
+dht = auto
+#
+# UDP порт, используемый DHT.
+#
+dht_port = 6881
+
+# Принудительно устанавливает кодировку UTF-8 для xmlrpc.
+# Рекомендуется для устранения проблем при использовании в
+# наименованиях торрентов символов кириллицы. Актуально для
+# GUI, работающих через xmlrpc.
+encoding_list = UTF-8
+

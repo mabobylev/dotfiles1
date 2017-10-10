@@ -1,23 +1,31 @@
 
 "" Custom configs
 
+" Необходимо установить для того, чтобы *.h файлам
+" присваивался тип c, а не cpp.
+let c_syntax_for_h=""
+
 " Для указанных типов файлов отключает замену табов пробелами и меняет ширину отступа
 au FileType crontab,fstab,make set noexpandtab tabstop=8 shiftwidth=8
 
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
+"" Remember cursor position
+if has("autocmd")
+    set viewoptions=cursor,folds
+    au BufWinLeave * mkview
+    au BufWinEnter * silent loadview
+endif
+"augroup vimrc-remember-cursor-position
+"    autocmd!
+"    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+"augroup END
 
 "" The PC is fast enough, do syntax highlight syncing from start
 augroup vimrc-sync-fromstart
     autocmd!
     autocmd BufEnter * :syntax sync fromstart
-augroup END
-
-"" Remember cursor position
-augroup vimrc-remember-cursor-position
-    autocmd!
-    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
 "" txt
@@ -119,10 +127,10 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
-endif
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+endif
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)

@@ -1,0 +1,86 @@
+#!/bin/sh -e
+
+# This is a gzipped i3lock-icon.svg converted into pdf with base64 applied
+img_pdf_gz () {
+        cat <<EOF
+H4sICKMgz1MAA2kzbG9jay1pY29uLnBkZgCVkm1IU1EYx7NI7FpBSWSheYgsDdvu3d2920xGbk4b
+JulMQtLoenc2r63dde5ZLasPRfWpwOpDEGmUgwrUsugVsoSkULP3FAp6n6H2RtELBXV23aa0vnS5
+nHvu75znOc//+Z/M0oLCJYyGozLPv2v7SbGABnJNHZWXB7QroNeNa4GeIAcFANAWSh4MEfl6BAwL
+oCg7IWU2UwpGUNhABY7AA/neG3SS7Zt58rDmJDNwnQklVQT7cu7bnvws7prSt/xB9Tz+1++NHcW2
+mfPTP/5+NTj9Q8as99dsuYdTSytGHr1Irr/Zh2clHlt8aX5PQihx4cmrnYm3y6oPJo+ce76hZTiv
+YU9V89ogH6gaaq3hpvnbmKFKUMzuLOigvwSlqcaBztRGaSil+WHC4zN7On39+ZzltGy58HbpMstO
+4+HpdZPWG6X0xuAEW9B16M1BPjX9UW37jCt360q629cg+73tjScyOE+o55TOkTFnQf2imyHd26aq
+NtveubOPrq+vfPU0Z3Pa+Tv9vV1NafuK2r6n9LqOhFZ3B6fldk2yox3zfmzzNzWIF3fvOr5x4UAW
+v+7Wp6Sy15dDO14O3r0+seVe/v7sPN/Wrs9fzT01Zwtb6RO99jfSyzLzs+7WXwm44cAmCnqdkVaS
+WdgEfcQM0ntWR0epLmaRaootgIvKMTEEjIIwE2gQNtCaDxigFQUyEpvIAhnJG8nDjbN61RYfBNpS
+wQ3VnKUCgl5MwqLOl0CnJFjkAFhDEA2MJg1nIo8RMCytYcNTPahWd1plLyaxCmBjwUVI9vvGVTd6
+mEqjqJxQJHgVX/hgcUsU2wFGfhj9s5JdBXCTJEJHkSUiJ8wdUJH9SIQK0Klnjklk/ilRUaOKJadC
+5IS74IjV7g+rHpeAH5fASqzBMgJZoiAhGTAaRqdheJBVi7EvV6tVqRsJvlpJVDQycmdnj/YSyU6/
+CP8rbqwAQ5wCq4AFj+yO+ETURGwaiwkg6KKISRQdewDPcSwHXCDKDCzxR13xxpie1ccxmuHi9zG6
+OMbRfBwzkPvxNzPpDGMMI0HyQKSKK5fqISlZ9VOWMTDEro/d65IBH9WoYAFhVaHJYKIyM20rC6k/
++epZU8QEAAA=
+EOF
+}
+
+file1=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
+file2=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
+
+convert_imglock() {
+    scale=.8
+    lockimage=$(mktemp --tmpdir i3lock-logo-XXXXXXXXXX)
+    img_pdf_gz | base64 -d | gunzip > "${lockimage}.pdf"
+    height=$(identify -format "($scale * %H + .5)/1\n" "$file2" | bc)     
+    width=$(identify -format "scale=4; t=%W/%H; scale=0; (t * $height + .5)/1\n" "${lockimage}.pdf" | bc)
+    convert -density 600 -background none -resize ${height}x${width} "${lockimage}.pdf" "${lockimage}.png"
+    convert -compose Exclusion -composite -gravity center "$file2" "${lockimage}.png" "$file2"
+    rm "${lockimage}" "${lockimage}.png" "${lockimage}.pdf"
+}
+
+lock() {
+    # Take a screenshot
+    import -window root "$file1"
+    # Pixellate it 10x
+    convert "$file1" -blur 0x3 "$file2"
+    rm "$file1"
+    convert_imglock
+    # Lock screen displaying this image.
+    i3lock -i "$file2"
+    trap "rm '$file2'" EXIT
+}
+
+if [ $# -ne 0  ]; then
+    cmd="$1"
+else
+    cmd="lock
+exit
+reboot
+shutdown"
+    cmd=`echo "$cmd" | dmenu -nb '#282828' -nf '#e9dab2' -fn 'Play -12'`
+fi
+notify-send -u critical "i3-wm message" "Command: $cmd"
+case "$cmd" in
+    lock)
+        lock
+        ;;
+    exit)
+        i3-msg exit
+        ;;
+    #    suspend)
+        #        lock && systemctl suspend
+        #        ;;
+    #    hibernate)
+        #        lock && systemctl hibernate
+        #        ;;
+    reboot)
+        systemctl reboot
+        ;;
+    shutdown)
+        systemctl poweroff -i
+        ;;
+    *)
+        exit 2
+esac
+
+exit 0
+
+# vim: ft=sh

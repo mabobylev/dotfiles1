@@ -7,25 +7,22 @@
 #CMD="TRUE exit FALSE reboot FALSE poweroff"
 #CMD=`zenity --list --radiolist --title="Завершение работы" --text="0" --column="1" --column="2" $CMD`
 
-CMD="exit
-reboot
-poweroff"
+CMD="exit reboot poweroff"
 CMD=`echo "$CMD" | dmenu -nb '#2f343f' -nf '#f3f4f5' -fn 'Play -12'`
 
 #Меню выхода из системы
 case $CMD in
     exit)
-        CMD="i3-msg exit"
+        i3-msg exit
         ;;
     reboot)
-        CMD="systemctl reboot"
+        systemctl reboot
         ;;
     poweroff)
-        CMD="systemctl poweroff"
+        systemctl poweroff -i
         ;;
     *)
-        exit 0
+        exit 2
         ;;
 esac
-$CMD
-
+exit 0
