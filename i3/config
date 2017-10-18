@@ -265,8 +265,8 @@ bindsym $mod+Pause mode "$mode_system"
 bindsym --release $mod+Print exec --no-startup-id import -window root /tmp/latest-screenshot.png
 bindsym mod1+F2 exec --no-startup-id rofi -show run
 bindsym mod1+Tab exec --no-startup-id rofi -show window
-bindsym mod1+w exec --no-startup-id pidof chromium || chromium
-bindsym mod1+Shift+w exec --no-startup-id pidof firefox || firefox
+bindsym mod1+w exec --no-startup-id pidof firefox || firefox
+bindsym mod1+Shift+w exec --no-startup-id pidof chromium || chromium
 
 #bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+ unmute
 #bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- unmute
