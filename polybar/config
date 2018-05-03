@@ -22,6 +22,7 @@ margin-bottom = 5
 
 [bar/i3]
 ;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:VGA-0}
 width = 100%
 height = 27
 offset-x = 0
@@ -36,7 +37,7 @@ overline-color = #f00
 underline-size = 2
 underline-color = #00f
 
-border-bottom = 2
+border-bottom-size = 2
 border-bottom-color = #333
 
 spacing = 1
@@ -49,9 +50,9 @@ font-0 = fixed:pixelsize=10;0
 font-1 = unifont:size=6:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=10;0
 
-modules-left = bspwm i3 xwindow
+modules-left = i3 xwindow
 modules-center = 
-modules-right = memory cpu volume xkeyboard wlan eth date powermenu
+modules-right = memory cpu volume xkeyboard eth date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -125,6 +126,7 @@ label-empty-padding = 2
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
+strip-wsnumbers = true
 
 label-mode = %mode%
 label-mode-padding = 2
@@ -147,27 +149,27 @@ label-visible = %index%
 label-visible-foreground = ${module/bspwm.label-empty-padding}
 label-visible-padding = ${module/bspwm.label-empty-padding}
 
-[module/mpd]
-type = internal/mpd
+;[module/mpd]
+;type = internal/mpd
 
-format-online = <label-song>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
+;format-online = <label-song>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
 
-label-song-maxlen = 25
-label-song-ellipsis = true
+;label-song-maxlen = 25
+;label-song-ellipsis = true
 
-icon-prev = 
-icon-seekb = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-icon-seekf = 
+;icon-prev = 
+;icon-seekb = 
+;icon-stop = 
+;icon-play = 
+;icon-pause = 
+;icon-next = 
+;icon-seekf = 
 
-icon-random = 
-icon-repeat = 
+;icon-random = 
+;icon-repeat = 
 
-toggle-on-foreground = ${colors.primary}
-toggle-off-foreground = #66
+;toggle-on-foreground = ${colors.primary}
+;toggle-off-foreground = #66
 
 [module/backlight]
 type = internal/xbacklight
@@ -281,32 +283,32 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = ADP1
-full-at = 98
-
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
-
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
-
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
+;[module/battery]
+;type = internal/battery
+;battery = BAT0
+;adapter = ADP1
+;full-at = 98
+;
+;format-charging = <animation-charging> <label-charging>
+;format-charging-underline = #ffb52a
+;
+;format-discharging = <ramp-capacity> <label-discharging>
+;format-discharging-underline = ${self.format-charging-underline}
+;
+;format-full-prefix = " "
+;format-full-prefix-foreground = ${colors.foreground-alt}
+;format-full-underline = ${self.format-charging-underline}
+;
+;ramp-capacity-0 = 
+;ramp-capacity-1 = 
+;ramp-capacity-2 = 
+;ramp-capacity-foreground = ${colors.foreground-alt}
+;
+;animation-charging-0 = 
+;animation-charging-1 = 
+;animation-charging-2 = 
+;animation-charging-foreground = ${colors.foreground-alt}
+;animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature

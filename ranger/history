@@ -2,8 +2,8 @@ Q
 AliasCommand 
 find 
 find F
-open_with vim
 touch 
 open_with 
 d
 delete
+open_with vim

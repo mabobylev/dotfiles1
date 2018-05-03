@@ -39,7 +39,7 @@ if [ -n "$(pgrep mocp)" ]; then
     esac
     mocsong=$(mocp -Q'%title')
     if [ "$mocsong" = '' ]; then
-        mocsong='No title'
+        mocsong=$(mocp -Q'%file')
     fi
     COLORI3="$COL_ACT"
 fi
