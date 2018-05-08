@@ -1,4 +1,3 @@
-
 "" Custom configs
 
 " Необходимо установить для того, чтобы *.h файлам
@@ -13,102 +12,40 @@ au FileType crontab,fstab,make set noexpandtab tabstop=8 shiftwidth=8
 "*****************************************************************************
 "" Remember cursor position
 if has("autocmd")
-    set viewoptions=cursor,folds
-    au BufWinLeave * mkview
-    au BufWinEnter * silent loadview
+"    set viewoptions=cursor,folds
+"    au BufWinLeave * mkview
+"    au BufWinEnter * silent loadview
+
+  augroup vimStartup
+    au!
+
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid, when inside an event handler
+    " (happens when dropping a file on gvim) and for a commit message (it's
+    " likely a different one than last time).
+    autocmd BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
+
+  augroup END
+endif " has("autocmd")
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+" Revert with: ":delcommand DiffOrig".
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
 endif
-"augroup vimrc-remember-cursor-position
-"    autocmd!
-"    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-"augroup END
 
-"" The PC is fast enough, do syntax highlight syncing from start
-augroup vimrc-sync-fromstart
-    autocmd!
-    autocmd BufEnter * :syntax sync fromstart
-augroup END
-
-"" txt
-if !exists('*s:setupWrapping')
-    function s:setupWrapping()
-        set wrap
-        set wm=2
-        set textwidth=79
-    endfunction
+if has('langmap') && exists('+langremap')
+  " Prevent that the langmap option applies to characters that result from a
+  " mapping.  If set (default), this may break plugins (but it's backward
+  " compatible).
+  set nolangremap
 endif
-
-augroup vimrc-wrapping
-    autocmd!
-    autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
-augroup END
-
-"" make/cmake
-augroup vimrc-make-cmake
-    autocmd!
-    autocmd FileType make setlocal noexpandtab
-    autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
-augroup END
-
-" vim-python
-augroup vimrc-python
-    autocmd!
-    autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
-                \ formatoptions+=croq softtabstop=4 smartindent
-                \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-augroup END
-
-" vim-javascript
-augroup vimrc-javascript
-    autocmd!
-    autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4 smartindent
-augroup END
-
-"" Перед сохранением .vimrc обновлять дату последнего изменения
-autocmd! BufWritePre $MYVIMRC call setline(1, '"" Last update: '.strftime("%d.%m.%Y %H:%M"))
-"" Автоматически перечитывать конфигурацию VIM после сохранения
-autocmd! bufwritepost $MYVIMRC source $MYVIMRC
-
-
-"*****************************************************************************
-"" Use neocomplete.
-"*****************************************************************************
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-    " For no inserting <CR> key.
-    "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
 
 " Enable omni completion.
 if exists("+omnifunc")
@@ -118,76 +55,9 @@ if exists("+omnifunc")
                 \ endif
 endif
 
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+let g:gitgutter_sign_added = '➕'
+let g:gitgutter_sign_modified = '✔'
+let g:gitgutter_sign_removed = '➖'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_modified_removed = '~_'
 
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-endif
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" ----------------------------------------------------------------------------
-" vimawesome.com
-" ----------------------------------------------------------------------------
-function! VimAwesomeComplete() abort
-    let prefix = matchstr(strpart(getline('.'), 0, col('.') - 1), '[.a-zA-Z0-9_/-]*$')
-    echohl WarningMsg
-    echo 'Downloading plugin list from VimAwesome'
-    echohl None
-    ruby << EOF
-    require 'json'
-    require 'open-uri'
-
-    query = VIM::evaluate('prefix').gsub('/', '%20')
-    items = 1.upto(max_pages = 3).map do |page|
-    Thread.new do
-    url  = "http://vimawesome.com/api/plugins?page=#{page}&query=#{query}"
-    data = open(url).read
-    json = JSON.parse(data, symbolize_names: true)
-    json[:plugins].map do |info|
-    pair = info.values_at :github_owner, :github_repo_name
-    next if pair.any? { |e| e.nil? || e.empty? }
-    {word: pair.join('/'),
-    menu: info[:category].to_s,
-    info: info.values_at(:short_desc, :author).compact.join($/)}
-end.compact
-    end
-end.each(&:join).map(&:value).inject(:+)
-VIM::command("let cands = #{JSON.dump items}")
-EOF
-if !empty(cands)
-    inoremap <buffer> <c-v> <c-n>
-    augroup _VimAwesomeComplete
-        autocmd!
-        autocmd CursorMovedI,InsertLeave * iunmap <buffer> <c-v>
-                    \| autocmd! _VimAwesomeComplete
-    augroup END
-
-    call complete(col('.') - strchars(prefix), cands)
-endif
-return ''
-endfunction
-
-augroup VimAwesomeComplete
-    autocmd!
-    autocmd FileType vim inoremap <c-x><c-v> <c-r>=VimAwesomeComplete()<cr>
-augroup END

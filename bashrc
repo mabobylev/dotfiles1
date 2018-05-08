@@ -39,6 +39,7 @@ EC() {
 }
 trap EC ERR
 
+source /usr/share/git/completion/git-prompt.sh
 source /usr/share/doc/pkgfile/command-not-found.bash
 
 exec /usr/bin/fish

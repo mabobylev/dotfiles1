@@ -1,86 +1,50 @@
-"" Last update: 18.12.2016 00:24
 " vim:filetype=vim
-"*****************************************************************************
-"" Vim-PLug core
-"*****************************************************************************
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-endif
+set nocompatible
+filetype off
 
-let vimplug_exists=expand('~/.vim/autoload/plug.vim')
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
 
-if !filereadable(vimplug_exists)
-  echo "Installing Vim-Plug..."
-  echo ""
-  silent !\curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  let g:not_finish_vimplug = "yes"
+call vundle#begin()
 
-  " Run shell script if exist on custom select language
-
-  autocmd VimEnter * PlugInstall
-endif
-
-" Required:
-call plug#begin(expand('~/.vim/plugged'))
-
-"*****************************************************************************
-"" Plug install packages
-"*****************************************************************************
-Plug 'morhetz/gruvbox'
-Plug 'tpope/vim-surround'
-Plug 'shougo/neocomplete.vim'
-Plug 'shougo/neosnippet.vim'
-Plug 'shougo/neosnippet-snippets'
-Plug 'honza/vim-snippets'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'majutsushi/tagbar'
-Plug 'godlygeek/tabular'
-Plug 'easymotion/vim-easymotion'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript']  }
-Plug 'othree/html5.vim', { 'for': ['html', 'javascript']  }
-Plug 'gorodinskiy/vim-coloresque'
-Plug 'ryanoasis/vim-devicons'
-Plug 'fatih/vim-go', { 'for': 'go'  }
-Plug 'nsf/gocode', { 'for': 'go'  }
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'majutsushi/tagbar'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tomasr/molokai'
+Plugin 'morhetz/gruvbox'
+Plugin 'godlygeek/tabular'
+Plugin 'ryanoasis/vim-devicons'
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-" Include user's extra bundle
-if filereadable(expand("~/.vimrc.local.bundles"))
-  source ~/.vimrc.local.bundles
-endif
+call vundle#end()		" required
+ 
+filetype plugin indent on	" required
 
-call plug#end()
-
-" Required:
-"filetype on
-"filetype indent on
-filetype plugin indent on
-set autoindent nosmartindent breakindent
-set hidden
+set nobackup
+set undofile
+set noswapfile
+set fileformats=unix,dos,mac
 set showcmd
-set nowrap       " Do not wrap long lines
-set lbr          " Better line wrapping (keep words entire)
-set noet         " Do not expand tab as multiple spaces"
+set shell=/bin/bash
+set lazyredraw
+set matchtime=3
+set mouse=a
+set history=200
+set textwidth=80
+setlocal cm=blowfish
+
 syntax on
 
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************"
-"" Map leader to ,
-let mapleader=','
-
-"" Disable visualbell
-set novisualbell t_vb=
-
 "" Configure autocomplete tool
-let g:acp_EnableAtStartup = 0
+let g:acp_EnableAtStartup=0
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
@@ -100,66 +64,42 @@ set backspace=indent,eol,start
 set nowrap
 
 "" Tabs. May be overriten by autocmd rules
-set tabstop=4
-set softtabstop=0
-set shiftwidth=4
-set expandtab
-set smartindent " Умные отступы (например, автоотступ после {)
+set cindent
+set autoindent
+"set smartindent " Умные отступы (например, автоотступ после {)
+set noexpandtab
 set smarttab
 retab
-
-"" Enable hidden buffers
-set hidden
 
 "" Searching
 set hlsearch
 set incsearch
 set ignorecase
-set smartcase
-
-"" Directories for swp files
-set nobackup
-set noswapfile
-
-setlocal cm=blowfish
-set fileformats=unix,dos,mac
-set showcmd
-set shell=/bin/sh
-set lazyredraw
-set matchtime=3
-set pastetoggle=<F2>
-"" Enhance command-line completion
-set completeopt+=menu
-set wildmenu
 
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
 set ruler
 set nu
-set rnu
-"set t_Co=256
+"set rnu
+set t_Co=256
 set matchpairs+=<:> " показывать совпадающие скобки для HTML-тегов
 set showmatch " показывать первую парную скобку после ввода второй
-set autoread " перечитывать изменённые файлы автоматически
-"set confirm " использовать диалоги вместо сообщений об ошибках
 set splitright
 set splitbelow
 set cursorline
 set cursorcolumn
-
-let no_buffers_menu=1
-if !exists('g:not_finish_vimplug')
-  colorscheme gruvbox
-endif
 set background=dark
 
-set mouse=a
-set mousemodel=popup
+let g:molokai_original=1
+color molokai
+
+set pastetoggle=<F2>
+set autoread " перечитывать изменённые файлы автоматически
 
 "" Status bar
 set laststatus=2
-set showtabline=2
+"set showtabline=2
 
 " To  show special characters in Vim
 set list
@@ -171,18 +111,6 @@ set tildeop "~"
 set magic
 set modeline
 set modelines=5
-
-"*****************************************************************************
-"" vim-airline
-"*****************************************************************************
-let g:airline_theme = 'gruvbox'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#virtualenv#enabled = 1
-"let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-
 
 "*****************************************************************************
 "" Abbreviations
@@ -203,74 +131,40 @@ iabbr /** /*********************************************************************
 iabbr **/ ************************************************************************/
 iabbr //- //-----------------------------------------------------------------------
 
+
 "*****************************************************************************
 "" Keymapping
 "*****************************************************************************
+
+"" Tagbar
+nmap <silent> <F4> :TagbarToggle<CR>
+let g:tagbar_autofocus=1
+"" NERDTree
+nmap <F3> :NERDTreeToggle<CR>
 
 "" Map : to ; also in command mode.
 nnoremap ; :
 vmap ; :
 
-"" Clean search (highlight)
-nmap <silent> <leader>/ :noh<cr>
-"nnoremap <silent> <leader><space> :noh<cr>
-"" Search and replace the word under the cursor
-:nnoremap <leader><space> :%s/\<<C-r><C-w>\>/
-map // <Plug>(easymotion-prefix)
+" Don't use Ex mode, use Q for formatting.
+" Revert with ":unmap Q".
+map Q gq
 
-"" Switching windows
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+" Revert with ":iunmap <C-U>".
+inoremap <C-U> <C-G>u<C-U>
 
-"" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
-
-"" NERDTree
-nmap <F3> :NERDTreeToggle<CR>
-
-"" Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
-
-"" Edit .vimrc file
-nmap <silent> <leader>ov :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :w<CR> :so $MYVIMRC<CR>
-
-"" TAB and Shift-TAB in normal mode cycle buffers
-nmap <Tab> :bn<CR>
-nmap <S-Tab> :bp<CR> 
-
-"" Surround
-" ," Surround a word with quotes
-map <leader>" ysiw"
-vmap <leader>" c"<C-R>""<ESC>
-
-" <leader>' Surround a word with 'single quotes'
-map <leader>' ysiw'
-vmap <leader>' c'<C-R>"'<ESC>
-" <leader>) or ,( Surround a word with (parens)
-" The difference is in whether a space is put in
-map <leader>( ysiw(
-map <leader>) ysiw)
-vmap <leader>( c( <C-R>" )<ESC>
-vmap <leader>) c(<C-R>")<ESC>
-
-" <leader>[ Surround a word with [brackets]
-map <leader>] ysiw]
-map <leader>[ ysiw[
-vmap <leader>[ c[ <C-R>" ]<ESC>
-vmap <leader>] c[<C-R>"]<ESC>
-
-" <leader>{ Surround a word with {braces}
-map <leader> } ysiw}
-map <leader>{ ysiw{
-vmap <leader>} c{ <C-R>" }<ESC>
-vmap <leader>{ c{<C-R>"}<ESC>
-
-map <leader>` ysiw`
+"*****************************************************************************
+"" vim-airline
+"*****************************************************************************
+let g:airline_theme='dark'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#virtualenv#enabled=1
+"let g:airline#extensions#syntastic#enabled=1
+let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tagbar#enabled=1
 
 "*****************************************************************************
 "" Include user's local vim config

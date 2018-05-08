@@ -205,20 +205,20 @@ d/home/xaoc/documents
 	..
 0
 d/home/xaoc
-	desktop
-1
-d/home/xaoc/desktop
+	downloads
+5
+d/home/xaoc/downloads
+	torrents
+5
+d/home/xaoc/downloads/torrents
+	..
+0
+d/home/xaoc/downloads
 	..
 0
 d/home/xaoc
-	workspace
-13
-d/home/xaoc/workspace
-	..
-0
-d/home/xaoc
-	wallpapers
-12
+	dotfiles
+4
 d
 
 # Right window history (oldest to newest):
@@ -232,6 +232,9 @@ D
 :help
 :qw
 :rm -rf
+:!cd .vim
+:!cd .vim/
+:view
 :q
 
 # Search history (oldest to newest):
