@@ -7,3 +7,7 @@ open_with
 d
 delete
 open_with vim
+cut
+put
+paste
+

@@ -18,6 +18,12 @@ Plugin 'tomasr/molokai'
 Plugin 'morhetz/gruvbox'
 Plugin 'godlygeek/tabular'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'potatoesmaster/i3-vim-syntax'
+Plugin 'avr8bit.vim'
+
 " On-demand loading
 Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -43,6 +49,9 @@ syntax on
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************"
+"" Map leader to ,
+let mapleader=','
+
 "" Configure autocomplete tool
 let g:acp_EnableAtStartup=0
 
@@ -154,6 +163,20 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 " Revert with ":iunmap <C-U>".
 inoremap <C-U> <C-G>u<C-U>
+
+"" Clean search (highlight)
+nmap <silent> <leader>/ :noh<cr>
+
+
+"" Switching windows
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
+
+"" Split
+noremap <leader>h :<C-u>split<CR>
+noremap <leader>v :<C-u>vsplit<CR>
 
 "*****************************************************************************
 "" vim-airline
