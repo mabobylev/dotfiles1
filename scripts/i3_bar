@@ -58,10 +58,16 @@ COLORI3="$COL_DEF"
 local icn=( "" "" "" )
 local icn1=${icn[0]}
 #🔊
-local vol="$(amixer -c 0 get Master | grep -E -o '[0-9]{1,3}?%' | sed -e "s/%//" | head -1)"
+#local vol="$(amixer -c 0 get Master | grep -E -o '[0-9]{1,3}?%' | sed -e "s/%//" | head -1)"
+#[[ "$vol" -ge 60 && "$vol" -gt 0 ]] && COLORI3="$COL_ACT" && icn1=${icn[1]}
+#[ "$vol" -eq 100 ] && COLORI3="$COL_RED" && icn1=${icn[2]}
+#echo -ne '{"full_text":"'$icn1 $vol'","color":"'$COLORI3'"},'
+#}
+################[[ $(pamixer --get-mute) = "true" ]] && echo -n 🔇
+local vol="$(pamixer --get-volume)"
 [[ "$vol" -ge 60 && "$vol" -gt 0 ]] && COLORI3="$COL_ACT" && icn1=${icn[1]}
 [ "$vol" -eq 100 ] && COLORI3="$COL_RED" && icn1=${icn[2]}
-echo -ne '{"full_text":"'$icn1 $vol'","color":"'$COLORI3'"},'
+echo -ne '{"full_text":"'$icn1 $vol'%","color":"'$COLORI3'"},'
 }
 
 function getDay() {

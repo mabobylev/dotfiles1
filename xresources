@@ -1,4 +1,4 @@
-!#include ".gruvbox-dark"
+#include ".gruvbox-dark"
 
 !Xft.dpi: 101
 !Xft.antialias: true
@@ -9,41 +9,26 @@
 !Xft.lcdfilter: lcddefault
 
 !! Rofi Settings
-!rofi.fullscreen: true
-!rofi.fixed-num-lines: true
+rofi.fullscreen: true
+rofi.fixed-num-lines: true
 !rofi.opacity: 75
 !!rofi.terminal: x-terminal-emulator
-!rofi.terminal:	termite
+rofi.terminal:	termite
 !rofi.width: 50
 !!rofi.lines: 10
-!!rofi.columns: 1
-!rofi.font:      Fira Mono Medium 40
+!rofi.columns: 1
+rofi.font:      Fira Mono Medium 18
 !!rofi.font: Play 18
-!rofi.bw:		0
-!rofi.eh:		1
+rofi.bw:		0
+rofi.eh:		1
 !!rofi.padding: 1
-!rofi.padding:	300
+rofi.padding:	300
 !!rofi.loc: 1
-!rofi.location:	0
+rofi.location:	0
 !!rofi.yoffset: -1
 !!rofi.xoffset: 0
 !!rofi.hmode: false
 !rofi.hide-scrollbar: true
-!rofi.ssh-set-title: true
-!rofi.disable-history: false
+rofi.ssh-set-title: true
+rofi.disable-history: false
 !!rofi.levenshtein-sort: true
-
-URxvt.intensityStyles:	false
-URxvt.background:       [70]#000000
-URxvt.depth:		32
-URxvt.font: 		xft:monospace:size=12
-URxvt.scrollBar:	false
-URxvt.cursorColor:	white
-
-!! Extensions
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
-URxvt.url-select.launcher:  /usr/bin/xdg-open 
-URxvt.url-select.underline: true
-URxvt.keysym.M-u:           perl:url-select:select_next
-URxvt.keysym.M-Escape:      perl:keyboard-select:activate
-URxvt.keysym.M-s:           perl:keyboard-select:search
