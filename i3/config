@@ -6,7 +6,7 @@ font pango:Play, FontAwesome 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-new_window pixel 3
+#new_window pixel 3
 new_float nonefocus_follows_mouse yes
 force_focus_wrapping yes
 popup_during_fullscreen ignore
@@ -37,18 +37,33 @@ set $WS8  "8:"
 set $WS9  "9:"
 set $WS10 "0:"
 
-# colors of Groovebox-dark theme
-set $backc #282828
-set $textc #e9dab2
-set $indic #fe8019
-set $inacc #504945
 
-set $black #1d2021
 
-client.focused          $textc $inacc $textc $indic
-client.unfocused        $inacc $black $inacc $indic
-client.focused_inactive $backc $inacc $inacc $indic
-client.urgent           $inacc $indic $textc $indic
+# Set Xresources colors:
+set_from_resource $darkblack	color0  #000000
+set_from_resource $black	color8  #000000
+set_from_resource $darkred	color1  #000000
+set_from_resource $red		color9  #000000
+set_from_resource $darkgreen	color2  #000000
+set_from_resource $green	color10 #000000
+set_from_resource $darkyellow	color3  #000000
+set_from_resource $yellow	color11 #000000
+set_from_resource $darkblue	color4  #000000
+set_from_resource $blue		color12 #000000
+set_from_resource $darkmagenta	color5  #000000
+set_from_resource $magenta	color13 #000000
+set_from_resource $darkcyan	color6  #000000
+set_from_resource $cyan		color14 #000000
+set_from_resource $darkwhite	color7  #000000
+set_from_resource $white	color15 #000000
+set $transparent		#00000000
+
+#                       BORDER		BACKGROUND	TEXT		INDICATOR   CHILD_BORDER
+client.focused		$red		$red		$magenta	$darkmagenta		$darkblue
+client.unfocused	$transparent	$blue		$white		$darkblue		$darkblack
+client.focused_inactive	$transparent	$blue		$white		$darkblue		$darkblack
+client.urgent		$darkred	$darkred	$black		$darkred		$darkred
+client.background $black
 
 # ************************************************************************
 #			 BAR CONFIGURATION
@@ -56,23 +71,24 @@ client.urgent           $inacc $indic $textc $indic
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    position top
-        strip_workspace_numbers yes
-        separator_symbol "⟨"
-        status_command ~/.local/bin/i3_bar
+	position top
+	mode dock
+	modifier None
+	strip_workspace_numbers yes
+	separator_symbol "⟨"
+	status_command ~/.local/bin/i3_bar
 #        status_command i3blocks
         tray_output primary
         tray_padding 1
         colors {
-            statusline $textc
-                background $backc
-                separator  $inacc
-#                                   BORDER  BACKGR  FOREGR
-                focused_workspace  $backc  $backc  $textc
-                inactive_workspace $backc  $backc  $inacc
-                active_workspace   $bordc  $backc  $indic
-                urgent_workspace   $backc  $backc  $indic
-                binding_mode       $bordc  $indic  $backc
+		background $darkblack
+		statusline $white
+		separator $black
+		focused_workspace  $darkblack $darkblack $yellow
+		active_workspace   $darkblack $darkblack $white
+		inactive_workspace $darkblack $darkblack $black
+		urgent_workspace $darkblack $darkred $darkblack
+#                binding_mode       $bordc  $indic  $backc
         }
 }
 
@@ -136,18 +152,17 @@ bindsym Mod1+Return exec i3-sensible-terminal -t float
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -nb "$backc" -nf "$textc" -fn "Play 12"
+bindsym $mod+d exec dmenu_run -nb "$darkblack" -nf "$cyan" -sb "$yellow" -sf "$darkblack" -fn "Play 12"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
-
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -159,7 +174,6 @@ bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+colon move right
-
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -168,32 +182,27 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h exec --no-startup-id notify-send "Splitting horizontally"
-
 # split in vertical orientation
 bindsym $mod+v split v exec --no-startup-id notify-send "Splitting vertically"
-
+bindsym $mod+Shift+e split toggle exec notify-send "Toggle SPLIT mode"
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking exec notify-send "STACKING mode"
 bindsym $mod+t layout tabbed exec notify-send "TABBED mode"
-bindsym $mod+e layout toggle split exec notify-send "Toggle SPLIT mode"
+bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle exec notify-send "Toggle FLOAT mode"
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
 # focus the parent container
 bindsym $mod+a focus parent
-
 # focus the child container
 bindsym $mod+Shift+a focus child
-
 # Jump to urgent window
-bindsym $mod+x [urgent=latest] focus
+bindsym $mod+u [urgent=latest] focus
 
 # The middle button and a modifer over any part of the window kills the window
 bindsym --whole-window $mod+button2 kill
@@ -230,7 +239,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exec ~/.local/bin/i3_exit
+bindsym $mod+x exec ~/.local/bin/i3_exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -244,13 +253,11 @@ mode "resize" {
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
-
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
-
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"

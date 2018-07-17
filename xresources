@@ -10,25 +10,27 @@
 
 !! Rofi Settings
 rofi.fullscreen: true
-rofi.fixed-num-lines: true
-!rofi.opacity: 75
+rofi.fake-transparency: true
+!rofi.fixed-num-lines: true
+rofi.opacity: "10"
 !!rofi.terminal: x-terminal-emulator
 rofi.terminal:	termite
 !rofi.width: 50
+!!rofi.lines: 3
 !!rofi.lines: 10
-!rofi.columns: 1
-rofi.font:      Fira Mono Medium 18
+rofi.columns: 1
+rofi.font:      Fira Mono Medium 22
 !!rofi.font: Play 18
 rofi.bw:		0
 rofi.eh:		1
 !!rofi.padding: 1
-rofi.padding:	300
+!rofi.padding:	300
 !!rofi.loc: 1
-rofi.location:	0
+!rofi.location:	0
 !!rofi.yoffset: -1
 !!rofi.xoffset: 0
 !!rofi.hmode: false
-!rofi.hide-scrollbar: true
+rofi.hide-scrollbar: true
 rofi.ssh-set-title: true
 rofi.disable-history: false
 !!rofi.levenshtein-sort: true

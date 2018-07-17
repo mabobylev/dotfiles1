@@ -5,9 +5,10 @@ find F
 touch 
 open_with 
 d
-delete
 open_with vim
 cut
 put
 paste
 
+rename temp
+delete
