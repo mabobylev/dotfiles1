@@ -8,6 +8,30 @@
 !Xft.hintstyle: hintfull
 !Xft.lcdfilter: lcddefault
 
+!! URxvt Settings
+URxvt.intensityStyles:	false
+URxvt.background:       [70]#000000
+URxvt.depth:		32
+URxvt.font: 		xft:monospace:size=11
+URxvt.scrollBar:	false
+URxvt.cursorColor:	white
+
+!! Extensions
+URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select
+URxvt.colorUL:		#4682B4
+!! url-select
+URxvt.keysym.M-u:	perl:url-select:select_next
+URxvt.url-select.launcher: linkhandler
+URxvt.url-select.underline: true
+!! keyboard-select:
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!! resize-font
+URxvt.resize-font.smaller:	C-Down
+URxvt.resize-font.bigger:	C-Up
+!! Matcher
+URxvt.url-launcher:	linkhandler
+URxvt.matcher.button: 1
+
 !! Rofi Settings
 rofi.fullscreen: true
 rofi.fake-transparency: true
@@ -19,7 +43,7 @@ rofi.terminal:	termite
 !!rofi.lines: 3
 !!rofi.lines: 10
 rofi.columns: 1
-rofi.font:      Fira Mono Medium 22
+rofi.font:     Ubuntu Nerd Font 18
 !!rofi.font: Play 18
 rofi.bw:		0
 rofi.eh:		1

@@ -15,28 +15,21 @@ search_wrap = true
 
 # "system", "on" or "off"
 cursor_blink = system
-
 # "block", "underline" or "ibeam"
 cursor_shape = ibeam
-
 # $BROWSER is used by default if set, with xdg-open as a fallback
 browser = xdg-open
-
 # set size hints for the window
 size_hints = true
-
 # Hide links that are no longer valid in url select overlay mode
 filter_unmatched_urls = true
-
 # emit escape sequences for extra modified keys
 #modify_other_keys = false
-
 [colors]
 foreground = #e9dab2
-background = #282828
-
+#background = [00]#282828
+background = rgba(28, 28, 28, 0.7)
 # gruvbox colors
-
 # dark0 + gray
 color0 = #282828
 color8 = #928374
