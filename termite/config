@@ -28,7 +28,7 @@ filter_unmatched_urls = true
 [colors]
 foreground = #e9dab2
 #background = [00]#282828
-background = rgba(28, 28, 28, 0.7)
+background = rgba(28, 28, 28, 0.8)
 # gruvbox colors
 # dark0 + gray
 color0 = #282828

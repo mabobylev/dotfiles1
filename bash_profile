@@ -6,7 +6,7 @@
 
 export PATH=$PATH:$HOME/.local/bin
 export EDITOR="vim"
-export TERMINAL="urxvt"
+export TERMINAL="termite"
 export BROWSER="firefox"
 
 # Uncomment lines below to autostart i3 when logged in:

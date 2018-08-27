@@ -57,14 +57,13 @@ set_from_resource $darkcyan	color6  #000000
 set_from_resource $cyan		color14 #000000
 set_from_resource $darkwhite	color7  #000000
 set_from_resource $white	color15 #000000
-set $transparent #00000070
-#set $transparent #282828
+set $transparent #1d212090
 
 #                       BORDER		BACKGROUND	TEXT		INDICATOR   	CHILD_BORDER
-client.focused		$red		$red		$darkblack	$darkblue	$darkblue
-client.unfocused	$transparent	$darkblue	$darkblack	$darkblue	$darkblue
+client.focused		$red		$red		$darkblack	$darkyellow	$yellow
+client.unfocused	$transparent	$darkblue	$white		$white		$blue
 client.focused_inactive	$transparent	$darkblue	$white		$darkblue	$darkblue
-client.urgent		$darkred	$darkred	$darkblack	$darkred	$darkred
+client.urgent		$darkred	$darkred	$darkblack	$darkred	$red
 client.background $transparent
 
 # ************************************************************************
@@ -192,8 +191,10 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h exec --no-startup-id notify-send "Splitting horizontally"
+#bindsym $mod+Cyrillic_er split h
 # split in vertical orientation
 bindsym $mod+v split v exec --no-startup-id notify-send "Splitting vertically"
+#bindsym $mod+Cyrillic_em split v
 bindsym $mod+Shift+e split toggle exec notify-send "Toggle SPLIT mode"
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -315,4 +316,11 @@ bindsym --release $mod+Print exec --no-startup-id import -window root /tmp/lates
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ '-5%'
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ '+5%'
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+
+# AUTOSTART APPS
+exec --no-startup-id i3-sensible-terminal
+exec --no-startup-id firefox
+
+
 # vim:filetype=i3:nospell

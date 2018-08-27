@@ -19,10 +19,16 @@ Plugin 'morhetz/gruvbox'
 Plugin 'godlygeek/tabular'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'potatoesmaster/i3-vim-syntax'
 Plugin 'avr8bit.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+" Plugin 'jiangmiao/auto-pairs'
+Plugin 'raimondi/delimitmate'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'ap/vim-css-color'
 
 " On-demand loading
 Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -38,6 +44,9 @@ set fileformats=unix,dos,mac
 set showcmd
 set shell=/bin/bash
 set lazyredraw
+set display+=lastline
+set scrolloff=3
+set sidescrolloff=5
 set matchtime=3
 set mouse=a
 set history=200
@@ -71,12 +80,17 @@ set fileencodings=utf-8
 "" Fix backspace indent
 set backspace=indent,eol,start
 set nowrap
+" arrow keys, bs, space wrap to next/prev line
+set whichwrap=b,s,<,>,[,]
 
 "" Tabs. May be overriten by autocmd rules
 set cindent
-set autoindent
+"set autoindent
 "set smartindent " Умные отступы (например, автоотступ после {)
-set noexpandtab
+"set noexpandtab
+set shiftround
+set shiftwidth=2
+set tabstop=2
 set smarttab
 retab
 
@@ -84,6 +98,7 @@ retab
 set hlsearch
 set incsearch
 set ignorecase
+set complete-=i
 
 "*****************************************************************************
 "" Visual Settings
@@ -92,7 +107,7 @@ set ruler
 set nu
 "set rnu
 set t_Co=256
-set matchpairs+=<:> " показывать совпадающие скобки для HTML-тегов
+" set matchpairs+=<:> " показывать совпадающие скобки для HTML-тегов
 set showmatch " показывать первую парную скобку после ввода второй
 set splitright
 set splitbelow
@@ -120,6 +135,7 @@ set tildeop "~"
 set magic
 set modeline
 set modelines=5
+set formatoptions+=j " Delete comment characters when joining lines.
 
 "*****************************************************************************
 "" Abbreviations
