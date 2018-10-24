@@ -90,7 +90,7 @@ bar {
 		active_workspace   $darkblack $transparent $white
 		inactive_workspace $darkblack $transparent $black
 		urgent_workspace   $darkblack $darkred $darkblack
-                binding_mode       $darkred $white $darkblack
+		binding_mode       $darkred $white $darkblack
 	}
 # disable clicking on workspace buttons
 #	bindsym button1 nop
@@ -321,6 +321,4 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 exec --no-startup-id termite
 #i3-sensible-terminal
 #exec --no-startup-id firefox
-
-
 # vim:filetype=i3:nospell
