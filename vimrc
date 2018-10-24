@@ -42,7 +42,7 @@ set undofile
 set noswapfile
 set fileformats=unix,dos,mac
 set showcmd
-set shell=/bin/bash
+set shell=/usr/bin/zsh
 set lazyredraw
 set display+=lastline
 set scrolloff=3

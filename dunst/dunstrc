@@ -11,7 +11,8 @@ font = Play 10
 # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
 # If markup is not allowed, those tags will be stripped out of the
 # message.
-allow_markup = yes
+#allow_markup = yes
+markup = yes
 
 # The format of the message.  Possible variables are:
 #   %a  appname
@@ -73,7 +74,7 @@ shrink = no
 # The transparency of the window.  Range: [0; 100].
 # This option will only work if a compositing windowmanager is
 # present (e.g. xcompmgr, compiz, etc.).
-transparency = 0
+transparency = 10
 
 # Don't remove messages, if the user is idle (no mouse or keyboard input)
 # for longer than idle_threshold seconds.
@@ -145,11 +146,11 @@ browser = /usr/bin/firefox
 icon_position = left
 
 # Paths to default icons.
-icon_folders = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/apps/
+icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/apps/
 
-[frame]
-width = 1
-color = "#d79921"
+#[frame]
+frame_width = 1
+frame_color = "#d79921"
 
 [shortcuts]
 

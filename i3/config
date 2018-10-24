@@ -78,7 +78,7 @@ bar {
 	mode dock
 	modifier None
 	strip_workspace_numbers yes
-	separator_symbol " ⟨ "
+	separator_symbol "⟨"
 	status_command ~/.bin/i3_bar
 	tray_output primary
 	tray_padding 1
@@ -323,4 +323,4 @@ exec --no-startup-id termite
 #exec --no-startup-id firefox
 
 
-# vim:filetype=i3config:nospell
+# vim:filetype=i3:nospell
