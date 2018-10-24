@@ -34,7 +34,7 @@ URxvt.url-launcher:	linkhandler
 URxvt.matcher.button: 1
 
 !! Rofi Settings
-rofi.fullscreen: true
+!rofi.fullscreen: true
 rofi.fake-transparency: true
 !rofi.fixed-num-lines: true
 rofi.opacity: "10"
@@ -44,8 +44,8 @@ rofi.terminal:	termite
 !!rofi.lines: 3
 !!rofi.lines: 10
 rofi.columns: 1
-rofi.font:     Ubuntu Nerd Font 18
-!!rofi.font: Play 18
+!rofi.font:     Ubuntu Nerd Font 18
+rofi.font: Play 18
 rofi.bw:		0
 rofi.eh:		1
 !!rofi.padding: 1
