@@ -26,7 +26,7 @@ Plugin 'avr8bit.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 " Plugin 'jiangmiao/auto-pairs'
-Plugin 'raimondi/delimitmate'
+" Plugin 'raimondi/delimitmate'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'ap/vim-css-color'
 
@@ -86,7 +86,7 @@ set whichwrap=b,s,<,>,[,]
 "" Tabs. May be overriten by autocmd rules
 set cindent
 "set autoindent
-"set smartindent " Умные отступы (например, автоотступ после {)
+set smartindent " Умные отступы (например, автоотступ после {)
 "set noexpandtab
 set shiftround
 set shiftwidth=2

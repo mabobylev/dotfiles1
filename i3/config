@@ -132,7 +132,6 @@ for_window [class="^Vlc$"] floating enable, focus
 for_window [instance="^fmterm$"] floating enable, border normal
 for_window [instance="^pulseaudio-equalizer.py$"] floating enable, focus
 for_window [instance="^VCLSalFrame"] focus
-#for_window [instance="^soffice"] floating enable
 for_window [instance="^sunvox"] floating enable
 for_window [instance="^qpaeq"] floating enable
 for_window [title="^float$"] floating enable
