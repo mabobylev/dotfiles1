@@ -13,87 +13,91 @@ COL_RED=#fe8019
 COLORI3="$COL_DEF"
 
 function Probel(){
-echo -ne '{"full_text":" "},'
+    echo -ne '{"full_text":" "},'
 }
 
 function getMoc() {
-COLORI3="$COL_INA"
-local mocstat=''
-local mocsong='off'
-local icn=( "" "" "" "")
-local icn1=${icn[0]}
-if [ -n "$(pgrep mocp)" ]; then
-    mocstat=$(mocp --info | grep 'State')
-    case "$mocstat" in
-        "State: STOP")
-            icn1=${icn[1]} 
-            ;;
-        "State: PAUSE")
-            icn1=${icn[2]}
-            ;;
-        "State: PLAY")
-            icn1=${icn[3]}
-            ;;
-        *)
-            icn1=${icn[0]}
-    esac
-    mocsong=$(mocp -Q'%title')
-    if [ "$mocsong" = '' ]; then
-        mocsong=$(mocp -Q'%file')
+    COLORI3="$COL_INA"
+    local mocstat=''
+    local mocsong='off'
+    local icn=( "" "" "" "")
+    local icn1=${icn[0]}
+    if [ -n "$(pgrep mocp)" ]; then
+        mocstat=$(mocp --info | grep 'State')
+        case "$mocstat" in
+            "State: STOP")
+                icn1=${icn[1]} 
+                ;;
+            "State: PAUSE")
+                icn1=${icn[2]}
+                ;;
+            "State: PLAY")
+                icn1=${icn[3]}
+                ;;
+            *)
+                icn1=${icn[0]}
+        esac
+        mocsong=$(mocp -Q'%title')
+        if [ "$mocsong" = '' ]; then
+            mocsong=$(mocp -Q'%file')
+        fi
+        COLORI3="$COL_ACT"
     fi
-    COLORI3="$COL_ACT"
-fi
-echo -ne '{"full_text":"'$icn1 $mocstat' - '$mocsong'","color":"'$COLORI3'"},'
+    echo -ne '{"full_text":"'$icn1 $mocstat' - '$mocsong'","color":"'$COLORI3'"},'
 }
 
 function getLang() {
-COLORI3="$COL_DEF"
-local lng=
-[ "`xset -q | awk -F \" \" '/Group 2/ {print($4)}'`" = "on" ] && lng="ru" && COLORI3="$COL_RED" || lng="en"
-echo -ne '{ "full_text":" '$lng'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
+    COLORI3="$COL_DEF"
+    local lng=
+    [ "`xset -q | awk -F \" \" '/Group 2/ {print($4)}'`" = "on" ] && lng="ru" && COLORI3="$COL_RED" || lng="en"
+    echo -ne '{ "full_text":" '$lng'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
 }
 
 function getVol() {
-COLORI3="$COL_DEF"
-local icn=( "" "" "" )
-local icn1=${icn[0]}
-#🔊
-#local vol="$(amixer -c 0 get Master | grep -E -o '[0-9]{1,3}?%' | sed -e "s/%//" | head -1)"
-#[[ "$vol" -ge 60 && "$vol" -gt 0 ]] && COLORI3="$COL_ACT" && icn1=${icn[1]}
-#[ "$vol" -eq 100 ] && COLORI3="$COL_RED" && icn1=${icn[2]}
-#echo -ne '{ "full_text":"'$icn1 $vol'","color":"'$COLORI3'" },'
-#}
-################[[ $(pamixer --get-mute) = "true" ]] && echo -n 🔇
-local vol="$(pamixer --get-volume)"
-[[ "$vol" -ge 60 && "$vol" -gt 0 ]] && COLORI3="$COL_ACT" && icn1=${icn[1]}
-[ "$vol" -eq 100 ] && COLORI3="$COL_RED" && icn1=${icn[2]}
-echo -ne '{ "full_text":"'$icn1 $vol'%","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
-}
+    COLORI3="$COL_DEF"
+    local icn=( "" "" "" )
+    local icn1=${icn[0]}
+    #🔊
+    #local vol="$(amixer -c 0 get Master | grep -E -o '[0-9]{1,3}?%' | sed -e "s/%//" | head -1)"
+    #[[ "$vol" -ge 60 && "$vol" -gt 0 ]] && COLORI3="$COL_ACT" && icn1=${icn[1]}
+    #[ "$vol" -eq 100 ] && COLORI3="$COL_RED" && icn1=${icn[2]}
+    #echo -ne '{ "full_text":"'$icn1 $vol'","color":"'$COLORI3'" },'
+    #}
+    [[ $(pamixer --get-mute) = "true" ]] && {
+        local vol="off"
+            icn1=${icn[0]}
+        } || {
+            local vol="$(pamixer --get-volume)%" ||\
+            [[ "$vol" -ge 60 && "$vol" -gt 0 ]] && COLORI3="$COL_ACT" && icn1=${icn[1]}
+                    [ "$vol" -eq 100 ] && COLORI3="$COL_RED" && icn1=${icn[2]}
+                }
+            echo -ne '{ "full_text":"'$icn1 $vol'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
+        }
 
-function getDay() {
-COLORI3="$COL_DEF"
-local day="$(date +'%a, %d %b')"
-[ "$(date +'%u')" -gt "5" ] && COLORI3="$COL_RED"
-echo -ne '{ "full_text":" '$day'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
-}
+    function getDay() {
+        COLORI3="$COL_DEF"
+        local day="$(date +'%a, %d %b')"
+        [ "$(date +'%u')" -gt "5" ] && COLORI3="$COL_RED"
+        echo -ne '{ "full_text":" '$day'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
+    }
 
 function getTme() {
-COLORI3="$COL_DEF"
-local tme="$(date +'%R')"
-[[ "$(date +'%H')" < "06" && "$(date +'%H')" > "21" ]] && COLORI3="$COL_ACT"
-echo -ne '{ "full_text":" '$tme'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
+    COLORI3="$COL_DEF"
+    local tme="$(date +'%R')"
+    [[ "$(date +'%H')" < "06" && "$(date +'%H')" > "21" ]] && COLORI3="$COL_ACT"
+    echo -ne '{ "full_text":" '$tme'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
 }
 
 function getNet() {
-local eth=$(cat /sys/class/net/enp2s0/operstate)
-local wif=$(cat /sys/class/net/wlp3s6/operstate)
-local icn=( "" "" "" )
-local icn1=${icn[2]}
-COLORI3="$COL_INA"
-[[ "$eth" = "up" || "$wif" = "up" ]] && COLORI3="$COL_ACT"
-[ "$wif" = "up" ] && icn1=${icn[1]}
-[ "$eth" = "up" ] && icn1=${icn[0]}
-echo -ne '{ "full_text":"'$icn1'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 }'
+    local eth=$(cat /sys/class/net/enp2s0/operstate)
+    local wif=$(cat /sys/class/net/wlp3s6/operstate)
+    local icn=( "" "" "" )
+    local icn1=${icn[2]}
+    COLORI3="$COL_INA"
+    [[ "$eth" = "up" || "$wif" = "up" ]] && COLORI3="$COL_ACT"
+    [ "$wif" = "up" ] && icn1=${icn[1]}
+    [ "$eth" = "up" ] && icn1=${icn[0]}
+    echo -ne '{ "full_text":"'$icn1'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 }'
 }
 
 while :;
