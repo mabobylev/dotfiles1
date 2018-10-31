@@ -88,10 +88,18 @@ function getTme() {
     echo -ne '{ "full_text":" '$tme'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
 }
 
+function getUpd() {
+    local chk_upd=$(find /tmp -iname 'upd_check' -cmin -360 | wc -l)
+    local upd_cnt=$(head -1 /tmp/upd_check)
+    [ -x "/usr/bin/yay" ] && [ $chk_upd -lt "1" ] && yay -Qu | wc -l > /tmp/upd_check
+    [ "$upd_cnt" -gt "0" ] && COLORI3="$COL_ACT" || COLORI3="$COL_INA"
+    echo -ne '{ "full_text":" '$upd_cnt updates'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
+}
+
 function getNet() {
     local eth=$(cat /sys/class/net/enp2s0/operstate)
     local wif=$(cat /sys/class/net/wlp3s6/operstate)
-    local icn=( "" "" "" )
+    local icn=( "" "" "" )
     local icn1=${icn[2]}
     COLORI3="$COL_INA"
     [[ "$eth" = "up" || "$wif" = "up" ]] && COLORI3="$COL_ACT"
@@ -100,8 +108,9 @@ function getNet() {
     echo -ne '{ "full_text":"'$icn1'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 }'
 }
 
+
 while :;
 do
-    echo -e ',['$(Probel)$(getMoc)$(getLang)$(getVol)$(getDay)$(getTme)$(getNet)']'
+    echo -e ',['$(Probel)$(getMoc)$(getLang)$(getVol)$(getDay)$(getTme)$(getUpd)$(getNet)']'
     sleep 2
 done

@@ -35,11 +35,11 @@ URxvt.matcher.button: 1
 
 !! Rofi Settings
 !rofi.fullscreen: true
-!rofi.fake-transparency: true
+rofi.fake-transparency: true
 !rofi.fixed-num-lines: true
-!rofi.opacity: "10"
+rofi.opacity: "80"
 !!rofi.terminal: x-terminal-emulator
-!rofi.terminal:	termite
+rofi.terminal:	termite
 !rofi.width: 50
 !!rofi.lines: 3
 !!rofi.lines: 10
@@ -57,5 +57,5 @@ rofi.font: Play 18
 !!rofi.hmode: false
 rofi.hide-scrollbar: true
 rofi.ssh-set-title: true
-rofi.disable-history: true
-!!rofi.levenshtein-sort: true
+!rofi.disable-history: false
+rofi.levenshtein-sort: true
