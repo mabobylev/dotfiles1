@@ -126,6 +126,7 @@ for_window [class="(?i)kicad"] floating enable, focus
 for_window [class="(?i)Pidgin|(?i)Gpicview|(?i)Lxappearance"] floating enable
 for_window [class="(?i)Gimp|(?i)Nautilus|(?i)Spacefm|(?i)Thunar|(?i)Pcmanfm"] floating enable, focus
 for_window [class="Pavucontrol|Pavumeter|Paman"] floating enable, focus
+for_window [class="(?i)galculator"] floating enable, focus
 for_window [instance="^Steam"] floating enable, focus
 for_window [class="^Mplayer$"] floating enable, sticky enable
 for_window [class="^Vlc$"] floating enable, focus

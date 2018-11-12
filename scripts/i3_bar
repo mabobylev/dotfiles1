@@ -18,32 +18,49 @@ function Probel(){
 
 function getMoc() {
     COLORI3="$COL_INA"
-    local mocstat=''
-    local mocsong='off'
+    local plstat=''
+    local plsong='off'
     local icn=( "" "" "" "")
     local icn1=${icn[0]}
     if [ -n "$(pgrep mocp)" ]; then
-        mocstat=$(mocp --info | grep 'State')
-        case "$mocstat" in
-            "State: STOP")
+        plstat=$(mocp --info | grep "State" | sed "s/State: //")
+        case "$plstat" in
+            "STOP")
                 icn1=${icn[1]} 
                 ;;
-            "State: PAUSE")
+            "PAUSE")
                 icn1=${icn[2]}
                 ;;
-            "State: PLAY")
+            "PLAY")
                 icn1=${icn[3]}
+                COLORI3="$COL_ACT"
                 ;;
             *)
                 icn1=${icn[0]}
         esac
-        mocsong=$(mocp -Q'%title')
-        if [ "$mocsong" = '' ]; then
-            mocsong=$(mocp -Q'%file')
+        plsong=$(mocp -Q'%title')
+        if [ "$plsong" = '' ]; then
+            plsong=$(mocp -Q'%file')
         fi
-        COLORI3="$COL_ACT"
+    elif [ -n "$(pgrep cmus)" ]; then
+        plstat=$(cmus-remote -Q | grep 'status' | sed "s/status //")
+        case "$plstat" in
+            "stopped")
+                icn1=${icn[1]} 
+                ;;
+            "paused")
+                icn1=${icn[2]}
+                ;;
+            "playing")
+                icn1=${icn[3]}
+                COLORI3="$COL_ACT"
+                ;;
+            *)
+                icn1=${icn[0]}
+        esac
+        plsong=$(cmus-remote -Q | grep "file" | sed "s/file //")
     fi
-    echo -ne '{"full_text":"'$icn1 $mocstat' - '$mocsong'","color":"'$COLORI3'"},'
+    echo -ne '{"full_text":"'$icn1 $plstat' - '$plsong'","color":"'$COLORI3'"},'
 }
 
 function getLang() {
@@ -91,9 +108,9 @@ function getTme() {
 function getUpd() {
     local chk_upd=$(find /tmp -iname 'upd_check' -cmin -360 | wc -l)
     local upd_cnt=$(head -1 /tmp/upd_check)
-    [ -x "/usr/bin/yay" ] && [ $chk_upd -lt "1" ] && yay -Qu | wc -l > /tmp/upd_check
-    [ "$upd_cnt" -gt "0" ] && COLORI3="$COL_ACT" || COLORI3="$COL_INA"
-    echo -ne '{ "full_text":" '$upd_cnt updates'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
+    [ -f "/usr/bin/yay" ] && [ $chk_upd -lt "1" ] && yay -Qu | wc -l > /tmp/upd_check
+    [ "$upd_cnt" -gt 0 ] && COLORI3="$COL_RED" || COLORI3="$COL_INA"
+    echo -ne '{ "full_text":" upd: '$upd_cnt'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
 }
 
 function getNet() {
@@ -111,6 +128,6 @@ function getNet() {
 
 while :;
 do
-    echo -e ',['$(Probel)$(getMoc)$(getLang)$(getVol)$(getDay)$(getTme)$(getUpd)$(getNet)']'
-    sleep 2
+    echo -e ',['$(Probel)$(getMoc)$(getUpd)$(getLang)$(getVol)$(getDay)$(getTme)$(getNet)']'
+    sleep 1
 done

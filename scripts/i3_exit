@@ -42,7 +42,7 @@ lock() {
     # Pixellate it 10x
     convert "$file1" -blur 0x3 "$file2"
     rm "$file1"
-    convert_imglock
+#    convert_imglock
     # Lock screen displaying this image.
     i3lock -i "$file2"
     trap "rm '$file2'" EXIT
