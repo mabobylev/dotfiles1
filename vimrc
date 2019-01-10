@@ -76,6 +76,8 @@ set ttyfast
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
+set ffs=unix,dos,mac
+set fencs=utf-8,cp1251,koi8-r,ucs-2,cp866
 
 "" Fix backspace indent
 set backspace=indent,eol,start
@@ -84,13 +86,14 @@ set nowrap
 set whichwrap=b,s,<,>,[,]
 
 "" Tabs. May be overriten by autocmd rules
-set cindent
 set autoindent
-"set smartindent " Умные отступы (например, автоотступ после {)
+"set cindent
+set smartindent " Умные отступы (например, автоотступ после {)
 "set noexpandtab
 set shiftround
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
 set smarttab
 retab
 
@@ -113,6 +116,8 @@ set splitright
 set splitbelow
 set cursorline
 set cursorcolumn
+set colorcolumn=80
+highlight ColorColumn ctermbg=darkgray
 set background=dark
 
 let g:molokai_original=1
@@ -126,9 +131,9 @@ set laststatus=2
 "set showtabline=2
 
 " To  show special characters in Vim
-set list
 set listchars=tab:»\ ,eol:¬,trail:·,extends:❯,precedes:❮,nbsp:×
 "eol:¶"
+set list
 set showbreak=↪
 set tildeop "~"
 

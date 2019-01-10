@@ -4,6 +4,12 @@
 " присваивался тип c, а не cpp.
 let c_syntax_for_h=""
 
+augroup project
+    autocmd!
+    autocmd BufRead,BufNewFile *.h,*.c set ft=c.doxygen
+    autocmd BufRead,BufNewFile *.asm set ft=avr8bit
+augroup END
+
 " Для указанных типов файлов отключает замену табов пробелами и меняет ширину отступа
 au FileType crontab,fstab,make set noexpandtab tabstop=8 shiftwidth=8
 
@@ -106,3 +112,6 @@ function! AppendModeline()
   call append(line("$"), l:modeline)
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+
+"let &path=".,/usr/avr/include,~/avr/inc"
+set path+=/usr/avr/include,/home/bma/avr/inc

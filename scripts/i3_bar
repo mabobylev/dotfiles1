@@ -105,13 +105,14 @@ function getTme() {
     echo -ne '{ "full_text":" '$tme'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
 }
 
-function getUpd() {
-    local chk_upd=$(find /tmp -iname 'upd_check' -cmin -360 | wc -l)
-    local upd_cnt=$(head -1 /tmp/upd_check)
-    [ -f "/usr/bin/yay" ] && [ $chk_upd -lt "1" ] && yay -Qu | wc -l > /tmp/upd_check
-    [ "$upd_cnt" -gt 0 ] && COLORI3="$COL_RED" || COLORI3="$COL_INA"
-    echo -ne '{ "full_text":" upd: '$upd_cnt'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
-}
+#function getUpd() {
+#    local chk_upd=$(find /tmp -iname 'upd_check' -cmin -360 | wc -l)
+#    local upd_cnt=$(head -1 /tmp/upd_check)
+#    [ -f "/usr/bin/yay" ] && [ $chk_upd -lt "1" ] && yay -Syy&
+#    [ $chk_upd -lt "1" ] && yay -Qu | wc -l > /tmp/upd_check
+#    [ "$upd_cnt" -gt 0 ] && COLORI3="$COL_RED" || COLORI3="$COL_INA"
+#    echo -ne '{ "full_text":" upd: '$upd_cnt'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
+#}
 
 function getNet() {
     local eth=$(cat /sys/class/net/enp2s0/operstate)
