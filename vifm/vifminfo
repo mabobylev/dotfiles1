@@ -2,27 +2,35 @@
 
 # Marks:
 'H
-	/home/xaoc/
+	/home/bma/
 	..
-1480998336
+1554218679
 'b
-	/home/xaoc/bin/
+	/home/bma/.bin/
 	..
-1480998336
+1554220966
+'d
+	/home/bma/public/dotfiles/
+	..
+1554220966
 'h
-	/home/xaoc/
+	/home/bma/
 	..
-1480998336
+1554218679
+'w
+	/home/bma/downloads/
+	..
+1554220966
 'z
-	/home/xaoc/.config/vifm
+	/home/bma/.config/vifm
 	..
-1480998336
+1554218679
 
 # Bookmarks:
 
 # TUI:
 al
-q0
+q1
 v2
 ov
 m-1
@@ -30,211 +38,162 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/xaoc
-	wallpapers
-11
-d/home/xaoc/wallpapers
-	..
-0
-d/home/xaoc
-	videos
-10
-d/home/xaoc/videos
-	..
-0
-d/home/xaoc
-	wallpapers
-11
-d/home/xaoc/wallpapers
-	..
-0
-d/home/xaoc
-	templates
-9
-d/home/xaoc/templates
-	..
-0
-d/home/xaoc
-	downloads
-5
-d/home/xaoc/downloads
-	..
-0
-d/home/xaoc
-	dotfiles
-4
-d/home/xaoc/dotfiles
-	..
-0
-d/home/xaoc
-	downloads
-5
-d/home/xaoc/downloads
-	..
-0
-d/home/xaoc
-	dotfiles
-4
-d/home/xaoc/dotfiles
-	..
-0
-d/home/xaoc
-	documents
-3
-d/home/xaoc/documents
-	..
-0
-d/home/xaoc
-	wallpapers
-11
-d/home/xaoc/wallpapers
-	..
-0
-d/home/xaoc
-	wallpapers
-11
-d/home/xaoc/wallpapers
-	..
-0
-d/home/xaoc
-	videos
-10
-d/home/xaoc/videos
-	..
-0
-d/home/xaoc
-	wallpapers
-11
-d/home/xaoc/wallpapers
-	..
-0
-d/home/xaoc
-	wallpapers
-11
-d/home/xaoc/wallpapers
-	..
-0
-d/home/xaoc
-	videos
-10
-d/home/xaoc/videos
-	..
-0
-d/home/xaoc
-	templates
-9
-d/home/xaoc/templates
-	..
-0
-d/home/xaoc
-	public
-8
-d/home/xaoc/public
-	..
-0
-d/home/xaoc
+d/home/bma
 	pictures
-7
-d/home/xaoc/pictures
-	..
-0
-d/home/xaoc
-	music
-6
-d/home/xaoc/music
-	..
-0
-d/home/xaoc
-	downloads
-5
-d/home/xaoc/downloads
-	..
-0
-d/home/xaoc
-	dotfiles
-4
-d/home/xaoc/dotfiles
-	..
-0
-d/home/xaoc
-	..
-0
-d/home
-	xaoc
-4
-d/home/xaoc
-	documents
-2
-d/home/xaoc/documents
-	..
-0
-d/home/xaoc
-	downloads
-4
-d/home/xaoc/downloads
-	..
-0
-d/home/xaoc
-	rt-magnet
 9
-d/home/xaoc/rt-magnet
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma/pictures/wallpapers
+	commands_linux-wallpaper-1920x1200.jpg
+6
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma
+	pictures
+9
+d/home/bma/.config/vifm
+	colors
+1
+d/home/bma/.config/vifm/colors
 	..
 0
-d/home/xaoc
-	go
-5
-d/home/xaoc/go
-	..
-0
-d/home/xaoc
-	downloads
-4
-d/home/xaoc/downloads
-	..
-0
-d/home/xaoc
-	dotfiles
-3
-d/home/xaoc/dotfiles
-	..
-0
-d/home/xaoc
-	documents
+d/home/bma/.config/vifm
+	scripts
 2
-d/home/xaoc/documents
+d/home/bma/.config/vifm/scripts
 	..
 0
-d/home/xaoc
-	downloads
-5
-d/home/xaoc/downloads
-	torrents
-5
-d/home/xaoc/downloads/torrents
+d/home/bma/.config/vifm
 	..
 0
-d/home/xaoc/downloads
+d/home/bma/.config
+	vifm
+31
+d/home/bma
+	temp
+11
+d/home/bma/temp
+	install.sh
+3
+d/home/bma
+	pictures
+9
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma/pictures/wallpapers
+	glass_glare_light_drops_wet_18363_1920x1080.jpg
+9
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma/pictures/wallpapers
+	glass_drops_light_night_83430_1920x1080.jpg
+8
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma/pictures/wallpapers
+	linux-25.png
+13
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma/pictures/wallpapers
 	..
 0
-d/home/xaoc
-	dotfiles
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma/pictures/wallpapers
+	..
+0
+d/home/bma/pictures
+	..
+0
+d/home/bma
+	avr
+2
+d/home/bma/avr
+	AVR-usb-tiny45-e1345101929967.jpg
+22
+d/home/bma
+	pictures
+9
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma/pictures/wallpapers
+	..
+0
+d/home/bma/pictures
+	..
+0
+d/home/bma
+	pictures
+9
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma/pictures/wallpapers
+	line_multi-colored_black_background_85540_1920x1080.jpg
+12
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma
+	pictures
+9
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma/pictures/wallpapers
+	78015.jpg
+1
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma
+	pictures
+9
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma/pictures/wallpapers
+	alienware-14.jpg
 4
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma
+	pictures
+9
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma/pictures/wallpapers
+	78015.jpg
+1
+d/home/bma/pictures
+	wallpapers
+1
+d/home/bma
+	pictures
+9
 d
 
 # Right window history (oldest to newest):
-D/home/xaoc
+D/home/bma
 	..
 0
 D
 
 # Command line history (oldest to newest):
-:colorscheme Default
+:cd .config/vifm/
 :help
-:qw
-:rm -rf
-:!cd .vim
-:!cd .vim/
-:view
+:w
 :q
 
 # Search history (oldest to newest):
@@ -244,15 +203,10 @@ D
 # Local filter history (oldest to newest):
 
 # Registers:
-""/home/xaoc/.local/share/vifm/Trash/000_???????
 
 # Directory stack (oldest to newest):
 
 # Trash content:
-t/home/xaoc/.local/share/vifm/Trash/000_rt-magnet
-	/home/xaoc/rt-magnet
-t/home/xaoc/.local/share/vifm/Trash/000_???????
-	/home/xaoc/documents/???????
 
 # State:
 f

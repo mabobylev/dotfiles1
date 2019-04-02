@@ -8,15 +8,15 @@
 " be used for the sub directories.
 
 " The standard ncurses colors are:
-"Default = -1 = None, can be used for transparency or default color
-"Black = 0
-"Red = 1
-"Green = 2
-"Yellow = 3
-"Blue = 4
-"Magenta = 5
-"Cyan = 6
-"White = 7
+" Default = -1 = None, can be used for transparency or default color
+" Black = 0
+" Red = 1
+" Green = 2
+" Yellow = 3
+" Blue = 4
+" Magenta = 5
+" Cyan = 6
+" White = 7
 
 " Light versions of colors are also available (set bold attribute):
 " LightBlack
@@ -45,7 +45,7 @@
 
 highlight clear
 
-highlight Win cterm=none ctermfg=white ctermbg=default
+highlight Win cterm=none ctermfg=white ctermbg=black
 highlight Directory cterm=bold ctermfg=cyan ctermbg=default
 highlight Link cterm=bold ctermfg=yellow ctermbg=default
 highlight BrokenLink cterm=bold ctermfg=red ctermbg=default
@@ -54,13 +54,12 @@ highlight Device cterm=bold ctermfg=red ctermbg=default
 highlight Fifo cterm=bold ctermfg=cyan ctermbg=default
 highlight Executable cterm=bold ctermfg=green ctermbg=default
 highlight Selected cterm=bold ctermfg=magenta ctermbg=default
-highlight CurrLine cterm=bold,reverse ctermfg=default ctermbg=default
-highlight TopLine cterm=none ctermfg=black ctermbg=default
+highlight CurrLine cterm=bold ctermfg=default ctermbg=blue
+highlight TopLine cterm=none ctermfg=black ctermbg=white
 highlight TopLineSel cterm=bold ctermfg=black ctermbg=default
-highlight StatusLine cterm=bold ctermfg=cyan ctermbg=black
+highlight StatusLine cterm=bold ctermfg=black ctermbg=white
 highlight WildMenu cterm=underline,reverse ctermfg=white ctermbg=black
-highlight CmdLine cterm=none ctermfg=white ctermbg=default
+highlight CmdLine cterm=none ctermfg=white ctermbg=black
 highlight ErrorMsg cterm=none ctermfg=red ctermbg=black
-highlight Border cterm=none ctermfg=black ctermbg=default
-highlight JobLine cterm=bold,reverse ctermfg=black ctermbg=default
-highlight SuggestBox cterm=bold ctermfg=default ctermbg=default
+highlight Border cterm=none ctermfg=black ctermbg=white
+highlight JobLine cterm=bold,reverse ctermfg=black ctermbg=white

@@ -115,3 +115,5 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
 "let &path=".,/usr/avr/include,~/avr/inc"
 set path+=/usr/avr/include,/home/bma/avr/inc
+
+let loaded_vifm=1
