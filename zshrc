@@ -53,8 +53,8 @@ zstyle ':vcs_info:*'   enable git
 zstyle ':vcs_info:*:*' check-for-changes true # Can be slow on big repos.
 zstyle ':vcs_info:*:*' unstagedstr '!'
 zstyle ':vcs_info:*:*' stagedstr '+'
-zstyle ':vcs_info:*:*' actionformats "${black}[${green}%b%u%c %a${black}]"
-zstyle ':vcs_info:*:*' formats       "${black}[${red}%b%u%c${black}]"
+zstyle ':vcs_info:*:*' actionformats "${black}[${red}%b%u%c %a${black}]"
+zstyle ':vcs_info:*:*' formats       "${black}[${green}%b%u%c${black}]"
 
 # root / user
 if [ "$EUID" -eq 0 ]; then
