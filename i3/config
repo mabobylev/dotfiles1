@@ -110,6 +110,8 @@ assign [class="(?i)Uzbl|(?i)Firefox|(?i)luakit|(?i)Chromium"] $WS2
 assign [class="^URxvt$" instance="^fmterm$"] $WS3
 assign [class="(?i)Spacefm|(?i)Nautilus|(?i)Thunar|(?i)Pcmanfm"] $WS3
 assign [class="(?i)jetbrains-studio"] $WS4
+assign [class="^Geany"] $WS4
+assign [class="^Emacs"] $WS4
 assign [class="(?i)Gimp"] $WS5
 assign [class="(?i)Pidgin"] $WS6
 assign [instance="^sunvox"] $WS7
@@ -153,8 +155,8 @@ for_window [instance="^irssi$"] move scratchpad
 bindsym $mod+Tab focus right
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal -t term
-#bindsym Mod1+Return exec i3-sensible-terminal -t float
+# bindsym $mod+Return exec i3-sensible-terminal -t term
+# bindsym Mod1+Return exec i3-sensible-terminal -t float
 bindsym $mod+Return exec termite -t term
 bindsym Mod1+Return exec termite -t float
 
@@ -166,7 +168,7 @@ bindsym $mod+d exec dmenu_run -nb "$darkblack" -nf "$cyan" -sb "$yellow" -sf "$d
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -209,7 +211,7 @@ bindsym $mod+space layout toggle all
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle exec notify-send "Toggle FLOAT mode"
 # change focus between tiling / floating windows
-#bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 # focus the child container
@@ -276,7 +278,7 @@ mode "resize" {
 
 
 # exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+x exec ~/.bin/i3_exit
 bindsym $mod+Pause mode "$mode_system"
 set $mode_system System (l)ock, (e)xit, (r)eboot, (s)hutdown
@@ -293,27 +295,27 @@ mode "$mode_system" {
 
 # Press $mod+o followed by either f, t, Escape or Return to launch firefox,
 # thunderbird or return to the default mode, respectively.
-#set $mode_launcher Launch: [f]irefox [c]chromium
-#bindsym $mod+o mode "$mode_launcher"
+# set $mode_launcher Launch: [f]irefox [c]chromium
+# bindsym $mod+o mode "$mode_launcher"
 #
-#mode "$mode_launcher" {
-#    bindsym f exec firefox
-#    bindsym c exec chromium
+# mode "$mode_launcher" {
+#     bindsym f exec firefox
+#     bindsym c exec chromium
 #
-#    bindsym Escape mode "default"
-#    bindsym Return mode "default"
-#}
+#     bindsym Escape mode "default"
+#     bindsym Return mode "default"
+# }
 
 # custom keybinding
 bindsym $mod+w exec --no-startup-id pidof firefox || firefox
-#bindsym $mod+Shift+w exec --no-startup-id pidof chromium || chromium
+# bindsym $mod+Shift+w exec --no-startup-id pidof chromium || chromium
 bindsym mod1+F2 exec --no-startup-id rofi -show run
 bindsym mod1+Tab exec --no-startup-id rofi -show window
 bindsym Ctrl+mod1+l exec ~/.bin/i3_exit lock
 bindsym --release $mod+Print exec --no-startup-id import -window root /tmp/latest-screenshot.png
-#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+ unmute
-#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- unmute
-#bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
+# bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+ unmute
+# bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- unmute
+# bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ '-5%'
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ '+5%'
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -323,4 +325,4 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 exec --no-startup-id termite
 #i3-sensible-terminal
 #exec --no-startup-id firefox
-# vim:filetype=i3:nospell
+# vim:filetype=i3config:nospell

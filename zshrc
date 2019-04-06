@@ -116,15 +116,11 @@ zstyle ':completion:*' menu select
 
 # emacs style
 bindkey -e
-
 bindkey "\e[3~" delete-char #delete
-
 bindkey "^[[H"  beginning-of-line #home
 bindkey "^[[F"  end-of-line       #end
-
 bindkey "^[[A"  history-beginning-search-backward #up
 bindkey "^[[B"  history-beginning-search-forward  #down
-
 bindkey '^[[1;5D'   backward-word #ctrl+left
 bindkey '^[[1;5C'   forward-word  #ctrl+right
 
@@ -158,12 +154,10 @@ ss() { fd . | xargs grep "$1" -sl }
 
 # sys
 alias ping='ping -c 1'
-
 alias l='ls -lAh --color=auto --group-directories-first'
 alias ls='ls --color=auto --group-directories-first'
 alias g='grep'
 alias se='sudoedit'
-
 alias df='df -h'
 alias du='du -h --max-depth=1 | sort -h'
 alias off='sleep 1; xset dpms force off'
@@ -210,6 +204,9 @@ gf() {
   git commit -m "$*"
   git push
 }
+
+# Bluetoth headset ON
+alias hs='echo -e "power on\nconnect 30:00:00:02:88:2C \nquit" | bluetoothctl'
 
 # what the commit
 #alias random_commit='git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'

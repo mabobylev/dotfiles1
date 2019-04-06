@@ -172,7 +172,7 @@ nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus=1
 
 "" NERDTree
-nmap <F3> :NERDTreeToggle<CR>
+nmap <F3> :NERDTreeToggle %<CR>
 
 "" Map : to ; also in command mode.
 nnoremap ; :
@@ -213,10 +213,11 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 "*****************************************************************************
 let g:airline_theme='dark'
 let g:airline_powerline_fonts=1
-" let g:airline#extensions#virtualenv#enabled=1
-" let g:airline#extensions#branch#enabled=1
-" let g:airline#extensions#tabline#enabled=1
-" let g:airline#extensions#tagbar#enabled=1
+let g:airline#extensions#virtualenv#enabled=1
+let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tagbar#enabled=1
+let g:airline#extensions#ale#enabled = 1
 
 "*****************************************************************************
 "" Различные настройки
@@ -266,12 +267,12 @@ if has('langmap') && exists('+langremap')
 endif
 
 " Enable omni completion.
-" if exists("+omnifunc")
-"     autocmd Filetype *
-"                 \ if &omnifunc == "" |
-"                 \  setlocal omnifunc=syntaxcomplete#Complete |
-"                 \ endif
-" endif
+if exists("+omnifunc")
+    autocmd Filetype *
+                \ if &omnifunc == "" |
+                \  setlocal omnifunc=syntaxcomplete#Complete |
+                \ endif
+endif
 
 autocmd FileType avr8bit setlocal commentstring=;\ %s
 
@@ -301,7 +302,7 @@ endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
 "let &path=".,/usr/avr/include,~/avr/inc"
-set path+=/usr/avr/include,/home/bma/avr/inc
+set path+=/usr/avr/include,/home/bma/avr/inc,/home/bma/avr/include
 
 let loaded_vifm=1
 
