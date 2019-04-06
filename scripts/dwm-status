@@ -13,13 +13,13 @@
 #	fi
 #}
 
-scal='\uF073' #
-svol='\uF357' #
-sclk='\uF3D6' #
-smai='\uF003' #
-sdsk='\uFOAO' #
-snet='\uF2F7' #
-swif='\uF35C' #
+scal='\uF073'
+svol='\uF028'
+sclk='\uF3D6'
+smai='\uF003'
+sdsk='\uF0AO'
+snet='\uF0E8'
+swif='\uF012'
 
 getVol() {
     vol=$(amixer get Master | grep -E -o '[0-9]{1,3}?%' | head -1)

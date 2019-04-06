@@ -38,21 +38,6 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/bma
-	pictures
-9
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma/pictures/wallpapers
-	commands_linux-wallpaper-1920x1200.jpg
-6
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma
-	pictures
-9
 d/home/bma/.config/vifm
 	colors
 1
@@ -180,8 +165,179 @@ d/home/bma/pictures
 	wallpapers
 1
 d/home/bma
-	pictures
+	temp
+11
+d/home/bma/temp
+	dwm-git
+2
+d/home/bma/temp/dwm-git
+	pkg
+2
+d/home/bma/temp/dwm-git/pkg
+	dwm-git
+1
+d/home/bma/temp/dwm-git/pkg/dwm-git
+	usr
+1
+d/home/bma/temp/dwm-git/pkg/dwm-git/usr
+	..
+0
+d/home/bma/temp/dwm-git/pkg/dwm-git
+	usr
+1
+d/home/bma/temp/dwm-git/pkg
+	dwm-git
+1
+d/home/bma/temp/dwm-git
+	dwm
+1
+d/home/bma/temp/dwm-git/dwm
+	config
+8
+d/home/bma/temp/dwm-git
+	src
+3
+d/home/bma/temp/dwm-git/src
+	dwm
+1
+d/home/bma/temp/dwm-git/src/dwm
+	Makefile
+2
+d/home/bma/temp/dwm-git/src
+	dwm
+1
+d/home/bma/temp/dwm-git
+	src
+3
+d/home/bma/temp
+	dwm-git
+2
+d/home/bma
+	avr
+3
+d/home/bma/avr
+	attiny2313
+10
+d/home/bma/avr/attiny2313
+	dijital-zamanlayici-devresi
+5
+d/home/bma/avr/attiny2313/dijital-zamanlayici-devresi
+	article_dosyalar
+1
+d/home/bma/avr/attiny2313
+	..
+0
+d/home/bma/avr
+	analizator
+5
+d/home/bma/avr/analizator
+	pcb
+4
+d/home/bma/avr/analizator/pcb
+	..
+0
+d/home/bma/avr/analizator
+	..
+0
+d/home/bma/avr
+	stm
+21
+d/home/bma/avr/stm
+	stm8
+1
+d/home/bma/avr/stm/stm8
+	..
+0
+d/home/bma/avr/stm
+	stm8
+1
+d/home/bma/avr
+	avr_kurs_1
+12
+d/home/bma/avr/avr_kurs_1
+	avr_kurs_1.asm
+3
+d/home/bma/avr
+	attiny13
 9
+d/home/bma/avr/attiny13
+	s1s2
+7
+d/home/bma/avr/attiny13/s1s2
+	cxema.jpg
+5
+d/home/bma/avr/attiny13
+	Устройство на Attiny13
+8
+d/home/bma/avr/attiny13/Устройство на Attiny13
+	lm_musik_at13
+1
+d/home/bma/avr/attiny13/Устройство на Attiny13/lm_musik_at13
+	lm_musik_at13.ino
+1
+d/home/bma/avr/attiny13/Устройство на Attiny13
+	lm_musik_at13
+1
+d/home/bma/avr/attiny13
+	Attiny13_BUTTON
+5
+d/home/bma/avr/attiny13/Attiny13_BUTTON
+	BUTTON.cpp
+5
+d/home/bma/avr/attiny13
+	Attiny13_BUTTON
+5
+d/home/bma/avr
+	atmega32
+8
+d/home/bma/avr/atmega32
+	main.c
+4
+d/home/bma/avr
+	atmega32
+8
+d/home/bma
+	temp
+12
+d/home/bma/temp
+	backup
+1
+d/home/bma
+	downloads
+6
+d/home/bma/downloads
+	Raznoe
+7
+d/home/bma/downloads/Raznoe
+	..
+0
+d/home/bma/downloads
+	Raznoe
+7
+d/home/bma/downloads/Raznoe
+	657
+6
+d/home/bma/downloads/Raznoe/657
+	LCD-BarGraph.sch
+4
+d/home/bma/downloads/Raznoe
+	642
+5
+d/home/bma/downloads/Raznoe/642
+	avr_iv2.asm
+1
+d/home/bma/downloads/Raznoe
+	116
+1
+d/home/bma/downloads
+	schematic
+10
+d/home/bma/downloads/schematic
+	ks0066.png
+1
+d/home/bma/downloads
+	ЛБП.zip
+36
 d
 
 # Right window history (oldest to newest):
@@ -194,6 +350,7 @@ D
 :cd .config/vifm/
 :help
 :w
+:h
 :q
 
 # Search history (oldest to newest):
@@ -203,10 +360,19 @@ D
 # Local filter history (oldest to newest):
 
 # Registers:
+""/home/bma/.local/share/vifm/Trash/000_DOC002978797.pdf
 
 # Directory stack (oldest to newest):
 
 # Trash content:
+t/home/bma/.local/share/vifm/Trash/000_install.sh
+	/home/bma/downloads/Raznoe/install.sh
+t/home/bma/.local/share/vifm/Trash/000_1кнопка=3команды.rar
+	/home/bma/downloads/1кнопка=3команды.rar
+t/home/bma/.local/share/vifm/Trash/000_Atollic_TrueSTUDIO_for_STM32_linux_x86_64_v9.2.0_20181203-0921.tar.gz
+	/home/bma/downloads/Atollic_TrueSTUDIO_for_STM32_linux_x86_64_v9.2.0_20181203-0921.tar.gz
+t/home/bma/.local/share/vifm/Trash/000_DOC002978797.pdf
+	/home/bma/downloads/DOC002978797.pdf
 
 # State:
 f
