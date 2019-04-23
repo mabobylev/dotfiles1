@@ -17,6 +17,10 @@
 	/home/bma/
 	..
 1554218679
+'m
+	/home/bma/downloads
+	VoltAmpEmk-Mega8.rar
+1554636985
 'w
 	/home/bma/downloads/
 	..
@@ -38,306 +42,306 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/bma/.config/vifm
-	colors
-1
-d/home/bma/.config/vifm/colors
-	..
-0
-d/home/bma/.config/vifm
-	scripts
-2
-d/home/bma/.config/vifm/scripts
-	..
-0
-d/home/bma/.config/vifm
-	..
-0
-d/home/bma/.config
-	vifm
-31
-d/home/bma
-	temp
-11
-d/home/bma/temp
-	install.sh
-3
-d/home/bma
-	pictures
-9
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma/pictures/wallpapers
-	glass_glare_light_drops_wet_18363_1920x1080.jpg
-9
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma/pictures/wallpapers
-	glass_drops_light_night_83430_1920x1080.jpg
-8
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma/pictures/wallpapers
-	linux-25.png
-13
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma/pictures/wallpapers
-	..
-0
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma/pictures/wallpapers
-	..
-0
-d/home/bma/pictures
-	..
-0
-d/home/bma
-	avr
-2
 d/home/bma/avr
-	AVR-usb-tiny45-e1345101929967.jpg
-22
-d/home/bma
-	pictures
-9
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma/pictures/wallpapers
-	..
-0
-d/home/bma/pictures
-	..
-0
-d/home/bma
-	pictures
-9
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma/pictures/wallpapers
-	line_multi-colored_black_background_85540_1920x1080.jpg
+	audioproc
 12
-d/home/bma/pictures
-	wallpapers
+d/home/bma/avr/audioproc
+	images
+2
+d/home/bma/avr/audioproc/images
+	vvid2.jpg
+18
+d/home/bma/avr/audioproc
+	audioproc.c
+3
+d/home/bma/avr
+	celeron
+15
+d/home/bma/avr/celeron
+	avrasm-ClockTimer_ATtiny85
 1
-d/home/bma
-	pictures
-9
-d/home/bma/pictures
-	wallpapers
+d/home/bma/avr
+	docs
+17
+d/home/bma/avr/docs
+	Занимательные проекты на базе МК tinyAVR  2012
+2
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012
+	CD
 1
-d/home/bma/pictures/wallpapers
-	78015.jpg
-1
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma
-	pictures
-9
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma/pictures/wallpapers
-	alienware-14.jpg
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD
+	Project-5 LEDpen
+6
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen
+	SRC5
+2
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen/SRC5
+	..
+0
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen
+	SRC5
+2
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD
+	Project-5 LEDpen
+6
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen
+	SRC5
+2
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen/SRC5
+	codev3_withadc
+2
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen/SRC5/codev3_withadc
+	main.eep
 4
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma
-	pictures
-9
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma/pictures/wallpapers
-	78015.jpg
-1
-d/home/bma/pictures
-	wallpapers
-1
-d/home/bma
-	temp
-11
-d/home/bma/temp
-	dwm-git
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen/SRC5
+	codev3_withadc
 2
-d/home/bma/temp/dwm-git
-	pkg
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen
+	SRC5
 2
-d/home/bma/temp/dwm-git/pkg
-	dwm-git
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen/SRC5
+	codev2_withoutadc
 1
-d/home/bma/temp/dwm-git/pkg/dwm-git
-	usr
-1
-d/home/bma/temp/dwm-git/pkg/dwm-git/usr
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen/SRC5/codev2_withoutadc
 	..
 0
-d/home/bma/temp/dwm-git/pkg/dwm-git
-	usr
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen/SRC5
+	codev2_withoutadc
 1
-d/home/bma/temp/dwm-git/pkg
-	dwm-git
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen
+	Eagle5
 1
-d/home/bma/temp/dwm-git
-	dwm
-1
-d/home/bma/temp/dwm-git/dwm
-	config
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD
+	Project-7 VU Meter with 20 LEDs
 8
-d/home/bma/temp/dwm-git
-	src
-3
-d/home/bma/temp/dwm-git/src
-	dwm
-1
-d/home/bma/temp/dwm-git/src/dwm
-	Makefile
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-7 VU Meter with 20 LEDs
+	SRC7
 2
-d/home/bma/temp/dwm-git/src
-	dwm
-1
-d/home/bma/temp/dwm-git
-	src
-3
-d/home/bma/temp
-	dwm-git
-2
-d/home/bma
-	avr
-3
-d/home/bma/avr
-	attiny2313
-10
-d/home/bma/avr/attiny2313
-	dijital-zamanlayici-devresi
-5
-d/home/bma/avr/attiny2313/dijital-zamanlayici-devresi
-	article_dosyalar
-1
-d/home/bma/avr/attiny2313
-	..
-0
-d/home/bma/avr
-	analizator
-5
-d/home/bma/avr/analizator
-	pcb
-4
-d/home/bma/avr/analizator/pcb
-	..
-0
-d/home/bma/avr/analizator
-	..
-0
-d/home/bma/avr
-	stm
-21
-d/home/bma/avr/stm
-	stm8
-1
-d/home/bma/avr/stm/stm8
-	..
-0
-d/home/bma/avr/stm
-	stm8
-1
-d/home/bma/avr
-	avr_kurs_1
-12
-d/home/bma/avr/avr_kurs_1
-	avr_kurs_1.asm
-3
-d/home/bma/avr
-	attiny13
-9
-d/home/bma/avr/attiny13
-	s1s2
-7
-d/home/bma/avr/attiny13/s1s2
-	cxema.jpg
-5
-d/home/bma/avr/attiny13
-	Устройство на Attiny13
-8
-d/home/bma/avr/attiny13/Устройство на Attiny13
-	lm_musik_at13
-1
-d/home/bma/avr/attiny13/Устройство на Attiny13/lm_musik_at13
-	lm_musik_at13.ino
-1
-d/home/bma/avr/attiny13/Устройство на Attiny13
-	lm_musik_at13
-1
-d/home/bma/avr/attiny13
-	Attiny13_BUTTON
-5
-d/home/bma/avr/attiny13/Attiny13_BUTTON
-	BUTTON.cpp
-5
-d/home/bma/avr/attiny13
-	Attiny13_BUTTON
-5
-d/home/bma/avr
-	atmega32
-8
-d/home/bma/avr/atmega32
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-7 VU Meter with 20 LEDs/SRC7
 	main.c
-4
-d/home/bma/avr
-	atmega32
-8
-d/home/bma
-	temp
-12
-d/home/bma/temp
-	backup
+2
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-7 VU Meter with 20 LEDs
+	SRC7
+2
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD
+	Project-8 Voltmeter
+9
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-8 Voltmeter
+	SRC8
+2
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-8 Voltmeter/SRC8
+	main.c
+3
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-8 Voltmeter
+	SRC8
+2
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD
+	Project-20 LED as a sensor and indicator
+21
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-20 LED as a sensor and indicator
+	Project20Code
 1
-d/home/bma
-	downloads
-6
-d/home/bma/downloads
-	Raznoe
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-20 LED as a sensor and indicator/Project20Code
+	labels.tmp
 7
-d/home/bma/downloads/Raznoe
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-20 LED as a sensor and indicator
+	Project20Code
+1
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD
+	pcd8544-NOKIA3310.pdf
+36
+d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012
+	Занимат проекты на базе МК tinyAVR   - 2012.djvu
+2
+d/home/bma/avr/docs
+	STM
+1
+d/home/bma/avr
+	encoder
+18
+d/home/bma/avr/encoder
+	encoder.c
+1
+d/home/bma/avr
+	inc
+19
+d/home/bma/avr/inc
+	1200def.inc
+1
+d/home/bma/avr
+	include
+20
+d/home/bma/avr/include
+	90s4434.h
+29
+d/home/bma/avr
+	tags
+32
+d/home/bma
+	music
+9
+d/home/bma/music
+	trance
+1
+d/home/bma/music/trance
 	..
 0
-d/home/bma/downloads
-	Raznoe
-7
-d/home/bma/downloads/Raznoe
-	657
+d/home/bma/music
+	trance
+1
+d/home/bma
+	templates
+13
+d/home/bma/templates
+	..
+0
+d/home/bma
+	avr
+3
+d/home/bma/avr
+	atmega8
 6
-d/home/bma/downloads/Raznoe/657
-	LCD-BarGraph.sch
-4
-d/home/bma/downloads/Raznoe
-	642
+d/home/bma/avr/atmega8
+	..
+0
+d/home/bma/avr
+	atmega8
+6
+d/home/bma
+	avr
+3
+d/home/bma/.wine/drive_c/SprintLayout/PCB
+	izmeritel
+11
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel
+	Печатка Вариант1
+2
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel/Печатка Вариант1
+	..
+0
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel
+	Печатка Вариант2
+3
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel/Печатка Вариант2
+	..
+0
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel
+	печатная плата (sprint layout)
 5
-d/home/bma/downloads/Raznoe/642
-	avr_iv2.asm
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel/печатная плата (sprint layout)
+	..
+0
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel
+	..
+0
+d/home/bma/.wine/drive_c/SprintLayout/PCB
+	izmeritel
+11
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel
+	печатная плата (sprint layout)
+5
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel/печатная плата (sprint layout)
+	..
+0
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel
+	Печатка Вариант2
+3
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel/Печатка Вариант2
+	DIP_PCB.pdf
 1
-d/home/bma/downloads/Raznoe
-	116
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel
+	Печатная моя (Eagle 5_11)
+4
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel/Печатная моя (Eagle 5_11)
+	..
+0
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel
+	Печатка Вариант1
+2
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel/Печатка Вариант1
+	..
+0
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel
+	Печатка Вариант2
+3
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel/Печатка Вариант2
+	..
+0
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel
+	Модель Proteus
 1
-d/home/bma/downloads
-	schematic
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel/Модель Proteus
+	..
+0
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel
+	..
+0
+d/home/bma/.wine/drive_c/SprintLayout/PCB
+	VA_meter
 10
-d/home/bma/downloads/schematic
-	ks0066.png
+d/home/bma/.wine/drive_c/SprintLayout/PCB/VA_meter
+	Плата.lay6
+2
+d/home/bma/.wine/drive_c/SprintLayout/PCB
+	izmeritel
+11
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel
+	печатная плата (sprint layout)
+5
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel/печатная плата (sprint layout)
+	schematic_DIP.jpg
+2
+d/home/bma/.wine/drive_c/SprintLayout/PCB/izmeritel
+	..
+0
+d/home/bma/.wine/drive_c/SprintLayout/PCB
+	VA_meter
+10
+d/home/bma/.wine/drive_c/SprintLayout/PCB/VA_meter
+	..
+0
+d/home/bma/.wine/drive_c/SprintLayout/PCB
+	VA_meter
+10
+d/home/bma/.wine/drive_c/SprintLayout/PCB/VA_meter
+	схема dip.png
+3
+d/home/bma/.wine/drive_c/SprintLayout/PCB
+	VA_meter
+10
+d/home/bma/.wine/drive_c/SprintLayout
+	PCB
+2
+d/home/bma/.wine/drive_c
+	SprintLayout
+6
+d/home/bma/.wine
+	drive_c
+2
+d/home/bma
+	avr
+3
+d/home/bma/avr
+	atmega8
+6
+d/home/bma/avr/atmega8
+	..
+0
+d/home/bma/avr
+	datasheets
+16
+d/home/bma/avr/datasheets
+	ATmega8.pdf
 1
-d/home/bma/downloads
-	ЛБП.zip
-36
+d/home/bma/avr
+	datasheets
+16
+d/home/bma/avr/datasheets
+	ATmega8.pdf
+1
+d/home/bma/avr
+	datasheets
+16
 d
 
 # Right window history (oldest to newest):
@@ -351,6 +355,7 @@ D
 :help
 :w
 :h
+:cd .wine/drive_c/SprintLayout/PCB/
 :q
 
 # Search history (oldest to newest):
@@ -360,7 +365,7 @@ D
 # Local filter history (oldest to newest):
 
 # Registers:
-""/home/bma/.local/share/vifm/Trash/000_DOC002978797.pdf
+""/home/bma/.local/share/vifm/Trash/000_+enc=utf8
 
 # Directory stack (oldest to newest):
 
@@ -373,6 +378,14 @@ t/home/bma/.local/share/vifm/Trash/000_Atollic_TrueSTUDIO_for_STM32_linux_x86_64
 	/home/bma/downloads/Atollic_TrueSTUDIO_for_STM32_linux_x86_64_v9.2.0_20181203-0921.tar.gz
 t/home/bma/.local/share/vifm/Trash/000_DOC002978797.pdf
 	/home/bma/downloads/DOC002978797.pdf
+t/home/bma/.local/share/vifm/Trash/000_VoltAmpEmk-Mega8.rar
+	/home/bma/avr/atmega8/izmeritel/VoltAmpEmk-Mega8.rar
+t/home/bma/.local/share/vifm/Trash/000_tags
+	/home/bma/tags
+t/home/bma/.local/share/vifm/Trash/000_dijital-zamanlayici-devresi
+	/home/bma/avr/attiny2313/dijital-zamanlayici-devresi
+t/home/bma/.local/share/vifm/Trash/000_+enc=utf8
+	/home/bma/avr/encoder/+enc=utf8
 
 # State:
 f
