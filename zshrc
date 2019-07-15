@@ -223,3 +223,5 @@ source ~/.zprofile
 export FZF_DEFAULT_OPTS="--extended --height 40% --layout=reverse --border --ansi"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git --color=always"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+source "/home/bma/.vim/plugged/gruvbox/gruvbox_256palette.sh"

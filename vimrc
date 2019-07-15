@@ -8,7 +8,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 Plug 'majutsushi/tagbar'
-Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -76,8 +76,8 @@ let loaded_vifm=1
 " Window display
 " Make sure colored syntax mode is on, and make it Just Work with 256-color terminals.
 set background=dark
-let g:rehash256 = 1 " Something to do with Molokai?
-color molokai
+let g:gruvbox_contrast_dark="hard"
+color gruvbox
 " set laststatus=2 showtabline=2
 " set autochdir
 set magic
