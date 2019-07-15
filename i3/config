@@ -6,7 +6,7 @@ font pango:Play, FontAwesome 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-#new_window pixel 3
+new_window pixel 2
 new_float nonefocus_follows_mouse yes
 force_focus_wrapping yes
 popup_during_fullscreen ignore
@@ -39,32 +39,24 @@ set $WS8  "8:"
 set $WS9  "9:"
 set $WS10 "0:"
 
-
+# ************************************************************************
+#			 COLORS CONFIGURATION
+# ************************************************************************
 # Set Xresources colors:
-set_from_resource $darkblack	color0  #000000
-set_from_resource $black	color8  #000000
-set_from_resource $darkred	color1  #000000
-set_from_resource $red		color9  #000000
-set_from_resource $darkgreen	color2  #000000
-set_from_resource $green	color10 #000000
-set_from_resource $darkyellow	color3  #000000
-set_from_resource $yellow	color11 #000000
-set_from_resource $darkblue	color4  #000000
-set_from_resource $blue		color12 #000000
-set_from_resource $darkmagenta	color5  #000000
-set_from_resource $magenta	color13 #000000
-set_from_resource $darkcyan	color6  #000000
-set_from_resource $cyan		color14 #000000
-set_from_resource $darkwhite	color7  #000000
-set_from_resource $white	color15 #000000
-set $transparent #1d212098
+set_from_resource $backgr color0 #000000
+set_from_resource $foregr color15 #000000
+set_from_resource $unfocus color8 #000000
+set_from_resource $focused color3 #000000
+set_from_resource $urgent  color4 #000000
+set $transp #28282898
 
-#                       BORDER		BACKGROUND	TEXT		INDICATOR   	CHILD_BORDER
-client.focused		$red		$red		$darkblack	$darkyellow	$yellow
-client.unfocused	$transparent	$darkblue	$white		$white		$blue
-client.focused_inactive	$transparent	$darkblue	$white		$darkblue	$darkblue
-client.urgent		$darkred	$darkred	$darkblack	$darkred	$red
-client.background $transparent
+#Class                  Border      Background  Text     Indicator   Child indicator
+client.focused          $focused    $focused    $backgr  $focused    $focused
+client.focused_inactive $unfocus    $unfocus    $foregr  $unfocus    $unfocus
+client.unfocused        $unfocus    $unfocus    $foregr  $unfocus    $unfocus
+client.urgent           $urgent     $urgent     $foregr  $urgent     $urgent
+#client.background $transp
+
 
 # ************************************************************************
 #			 BAR CONFIGURATION
@@ -72,8 +64,6 @@ client.background $transparent
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-#	i3bar_command i3bar -t
-	height 25
 	position top
 	mode dock
 	modifier None
@@ -83,14 +73,15 @@ bar {
 	tray_output primary
 	tray_padding 1
 	colors {
-		background $transparent
-		statusline $white
-		separator $black
-		focused_workspace  $darkblack $transparent $yellow
-		active_workspace   $darkblack $transparent $white
-		inactive_workspace $darkblack $transparent $black
-		urgent_workspace   $darkblack $darkred $darkblack
-		binding_mode       $darkred $white $darkblack
+		background $transp
+		statusline $foregr
+		separator $unfocus
+#		<colorclass>      <border> <background> <text>
+		focused_workspace  $backgr $transp $focused
+		active_workspace   $backgr $transp $foregr
+		inactive_workspace $backgr $transp $unfocus
+		urgent_workspace   $urgent $urgent $backgr
+		binding_mode       $focused $foregr $backgr
 	}
 # disable clicking on workspace buttons
 #	bindsym button1 nop
@@ -164,11 +155,11 @@ bindsym Mod1+Return exec termite -t float
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -nb "$darkblack" -nf "$cyan" -sb "$yellow" -sf "$darkblack" -fn "Play-12"
+bindsym $mod+d exec dmenu_run -nb "$backgr" -nf "$foregr" -sb "$unfocus" -sf "$backgr" -fn "Play-12"
 # ************************************************************************
 # Нужен dmenu2
 # ************************************************************************
-bindsym Mod1+d exec dmenu_run -y 400 -x 450 -w 1000 -dim 0.8 -l 10 -nb "$darkblack" -nf "$cyan" -sb "$yellow" -sf "$darkblack" -fn "Play-24"
+bindsym Mod1+d exec dmenu_run -y 400 -x 450 -w 1000 -dim 0.8 -l 10 -nb "$backgr" -nf "$foregr" -sb "$unfocus" -sf "$backgr" -fn "Play-24"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
