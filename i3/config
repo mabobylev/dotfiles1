@@ -8,14 +8,14 @@ font pango:Play, FontAwesome 12
 floating_modifier $mod
 new_window pixel 2
 new_float nonefocus_follows_mouse yes
+focus_follows_mouse no
 force_focus_wrapping yes
 popup_during_fullscreen ignore
-force_display_urgency_hint 0ms
-focus_on_window_activation urgent
+#force_display_urgency_hint 0ms
+#focus_on_window_activation urgent
 floating_minimum_size -1 x -1
 #floating_maximum_size 1440 x 900
 workspace_auto_back_and_forth yes
-focus_follows_mouse no
 
 for_window [class="^.*"] border pixel 2
 gaps inner 5
@@ -43,18 +43,18 @@ set $WS10 "0:"
 #			 COLORS CONFIGURATION
 # ************************************************************************
 # Set Xresources colors:
-set_from_resource $backgr color0 #000000
-set_from_resource $foregr color15 #000000
+set_from_resource $backgr background #000000
+set_from_resource $foregr foreground #000000
 set_from_resource $unfocus color8 #000000
 set_from_resource $focused color3 #000000
 set_from_resource $urgent  color4 #000000
 set $transp #28282898
 
 #Class                  Border      Background  Text     Indicator   Child indicator
-client.focused          $focused    $focused    $backgr  $focused    $focused
-client.focused_inactive $unfocus    $unfocus    $foregr  $unfocus    $unfocus
-client.unfocused        $unfocus    $unfocus    $foregr  $unfocus    $unfocus
-client.urgent           $urgent     $urgent     $foregr  $urgent     $urgent
+client.focused          $foregr     $backgr     $foregr  $foregr     $foregr
+client.focused_inactive $unfocus    $backgr     $foregr  $unfocus    $unfocus
+client.unfocused        $backgr     $backgr     $unfocus $backgr     $backgr
+client.urgent           $urgent     $urgent     $backgr  $urgent     $urgent
 #client.background $transp
 
 
@@ -143,8 +143,12 @@ for_window [title="Preferences$"] floating enable
 # ************************************************************************
 #			 KEY CONFIGURATION
 # ************************************************************************
-bindsym $mod+Tab focus right
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
 
+bindsym $mod+Tab focus right
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal -t term
 # bindsym Mod1+Return exec i3-sensible-terminal -t float

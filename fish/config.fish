@@ -1,28 +1,33 @@
 # start X at login
-#if status --is-login
-#    if test -z "$DISPLAY" -a "$XDG_VTNR" -eq "1"
-#        exec startx
-#    end
-#end
-#
+if status --is-login
+    set PATH $PATH /usr/bin /sbin ~/.bin
+    if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
+        exec startx -- -keeptty
+    end
+end
+
 #if status --is-login
 #    set PATH $PATH /usr/bin /sbin
 #end
+
+function su
+        /bin/su --shell=/usr/bin/fish $argv
+end
 
 function e
     eval $EDITOR $argv
 end
 
 function ev
-    eval $EDITOR ~/dotfiles/vimrc
+    eval $EDITOR ~/public/dotfiles/vimrc
 end
 
-function ewm
-    eval $EDITOR ~/dotfiles/i3/config
+function ei3
+    eval $EDITOR ~/public/dotfiles/i3/config
 end
 
-function yaupg
-    yaourt -Syyua --noconfirm
+function yupg
+    yay -Syyu --noconfirm
 end
 
 function weather
