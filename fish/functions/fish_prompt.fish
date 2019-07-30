@@ -1,72 +1,104 @@
 function fish_prompt
-	if not set -q -g __fish_robbyrussell_functions_defined
-    set -g __fish_robbyrussell_functions_defined
-    function _git_branch_name
-      echo (git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
+	
+    # - green lines if the last return command is OK, red otherwise
+    # - your user name, in red if root or yellow otherwise
+    # - your hostname, in cyan if ssh or blue otherwise
+    # - the current path (with prompt_pwd)
+    # - date +%X
+    # - the current virtual environment, if any
+    # - the current git status, if any, with __fish_git_prompt
+    # - the current battery state, if any, and if your power cable is unplugged, and if you have "acpi"
+    # - current background jobs, if any
+
+    # It goes from:
+    # ┬─[nim@Hattori:~]─[11:39:00]
+    # ╰─>$ echo here
+
+    # To:
+    # ┬─[nim@Hattori:~/w/dashboard]─[11:37:14]─[V:django20]─[G:master↑1|●1✚1…1]─[B:85%, 05:41:42 remaining]
+    # │ 2	15054	0%	arrêtée	sleep 100000
+    # │ 1	15048	0%	arrêtée	sleep 100000
+    # ╰─>$ echo there
+
+    set -q __fish_git_prompt_showupstream
+    or set -g __fish_git_prompt_showupstream auto
+
+    function _nim_prompt_wrapper
+        set retc $argv[1]
+        set field_name $argv[2]
+        set field_value $argv[3]
+
+        set_color normal
+        set_color $retc
+        echo -n '─'
+        set_color -o green
+        echo -n '['
+        set_color normal
+        test -n $field_name
+        and echo -n $field_name:
+        set_color $retc
+        echo -n $field_value
+        set_color -o green
+        echo -n ']'
     end
+    and set retc green
+    or set retc red
 
-    function _is_git_dirty
-      echo (git status -s --ignore-submodules=dirty ^/dev/null)
+    set_color $retc
+    echo -n '┬─'
+    set_color -o green
+    echo -n [
+    if test "$USER" = root -o "$USER" = toor
+        set_color -o red
+    else
+        set_color -o yellow
     end
-
-    function _is_git_repo
-      type -q git; or return 1
-      git status -s >/dev/null ^/dev/null
+    echo -n $USER
+    set_color -o white
+    echo -n @
+    if [ -z "$SSH_CLIENT" ]
+        set_color -o blue
+    else
+        set_color -o cyan
     end
+    echo -n (prompt_hostname)
+    set_color -o white
+    echo -n :(prompt_pwd)
+    set_color -o green
+    echo -n ']'
 
-    function _hg_branch_name
-      echo (hg branch ^/dev/null)
+    # Date
+    _nim_prompt_wrapper $retc '' (date +%X)
+
+    # Virtual Environment
+    set -q VIRTUAL_ENV
+    and _nim_prompt_wrapper $retc V (basename "$VIRTUAL_ENV")
+
+    # git
+    set prompt_git (__fish_git_prompt | string trim -c ' ()')
+    test -n "$prompt_git"
+    and _nim_prompt_wrapper $retc G $prompt_git
+
+    # Battery status
+    type -q acpi
+    and test (acpi -a 2> /dev/null | string match -r off)
+    and _nim_prompt_wrapper $retc B (acpi -b | cut -d' ' -f 4-)
+
+    # New line
+    echo
+
+    # Background jobs
+    set_color normal
+    for job in (jobs)
+        set_color $retc
+        echo -n '│ '
+        set_color brown
+        echo $job
     end
-
-    function _is_hg_dirty
-      echo (hg status -mard ^/dev/null)
-    end
-
-    function _is_hg_repo
-      type -q hg; or return 1
-      hg summary >/dev/null ^/dev/null
-    end
-
-    function _repo_branch_name
-      eval "_$argv[1]_branch_name"
-    end
-
-    function _is_repo_dirty
-      eval "_is_$argv[1]_dirty"
-    end
-
-    function _repo_type
-      if _is_hg_repo
-        echo 'hg'
-      else if _is_git_repo
-        echo 'git'
-      end
-    end
-  end
-
-  set -l cyan (set_color -o cyan)
-  set -l yellow (set_color -o yellow)
-  set -l red (set_color -o red)
-  set -l blue (set_color -o blue)
-  set -l normal (set_color normal)
-
-  set -l arrow "$red➜ "
-  if [ $USER = 'root' ]
-    set arrow "$red# "
-  end
-
-  set -l cwd $cyan(basename (prompt_pwd))
-
-  set -l repo_type (_repo_type)
-  if [ $repo_type ]
-    set -l repo_branch $red(_repo_branch_name $repo_type)
-    set repo_info "$blue $repo_type:($repo_branch$blue)"
-
-    if [ (_is_repo_dirty $repo_type) ]
-      set -l dirty "$yellow ✗"
-      set repo_info "$repo_info$dirty"
-    end
-  end
-
-  echo -n -s $arrow ' '$cwd $repo_info $normal ' '
+    set_color normal
+    set_color $retc
+    echo -n '╰─>'
+    set_color -o red
+    echo -n '$ '
+    set_color normal
 end

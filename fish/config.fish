@@ -10,11 +10,28 @@ if status --is-login
   set -U EDITOR vim
 end
 
+
+if status --is-login
+    set PATH $PATH /usr/bin /sbin ~/.bin
+    if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
+        exec startx -- -keeptty
+    end
+end
+
+#if status --is-login
+#    set PATH $PATH /usr/bin /sbin
+#end
+
+function su
+        /bin/su --shell=/usr/bin/fish $argv
+end
+
 function e
     eval $EDITOR $argv
 end
 
 function ev
+<<<<<<< HEAD
     eval $EDITOR ~/.config/vimrc
 end
 
@@ -24,6 +41,17 @@ end
 
 function yupg
     yaourt -Syyu --noconfirm
+=======
+    eval $EDITOR ~/public/dotfiles/vimrc
+end
+
+function ei3
+    eval $EDITOR ~/public/dotfiles/i3/config
+end
+
+function yupg
+    yay -Syyu --noconfirm
+>>>>>>> bbcc8f74a4193e73896d3c11fbe04c013cc88614
 end
 
 function weather
