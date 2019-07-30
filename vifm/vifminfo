@@ -42,45 +42,6 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/bma/avr
-	audioproc
-12
-d/home/bma/avr/audioproc
-	images
-2
-d/home/bma/avr/audioproc/images
-	vvid2.jpg
-18
-d/home/bma/avr/audioproc
-	audioproc.c
-3
-d/home/bma/avr
-	celeron
-15
-d/home/bma/avr/celeron
-	avrasm-ClockTimer_ATtiny85
-1
-d/home/bma/avr
-	docs
-17
-d/home/bma/avr/docs
-	Занимательные проекты на базе МК tinyAVR  2012
-2
-d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012
-	CD
-1
-d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD
-	Project-5 LEDpen
-6
-d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen
-	SRC5
-2
-d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen/SRC5
-	..
-0
-d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD/Project-5 LEDpen
-	SRC5
-2
 d/home/bma/avr/docs/Занимательные проекты на базе МК tinyAVR  2012/CD
 	Project-5 LEDpen
 6
@@ -342,6 +303,45 @@ d/home/bma/avr/datasheets
 d/home/bma/avr
 	datasheets
 16
+d/home/bma
+	Temp
+7
+d/home/bma/Temp
+	..
+0
+d/home/bma
+	Templates
+8
+d/home/bma/Templates
+	..
+0
+d/home/bma
+	Pictures
+5
+d/home/bma/Pictures
+	circles.jpg
+5
+d/home/bma
+	Pictures
+5
+d/home
+	bma
+1
+d/
+	home
+4
+d/home
+	bma
+1
+d/home/bma
+	Pictures
+5
+d/home/bma/Pictures
+	..
+0
+d/home/bma
+	Videos
+9
 d
 
 # Right window history (oldest to newest):
@@ -365,7 +365,7 @@ D
 # Local filter history (oldest to newest):
 
 # Registers:
-""/home/bma/.local/share/vifm/Trash/000_+enc=utf8
+""/home/bma/.local/share/vifm/Trash/000_ 
 
 # Directory stack (oldest to newest):
 
@@ -386,6 +386,8 @@ t/home/bma/.local/share/vifm/Trash/000_dijital-zamanlayici-devresi
 	/home/bma/avr/attiny2313/dijital-zamanlayici-devresi
 t/home/bma/.local/share/vifm/Trash/000_+enc=utf8
 	/home/bma/avr/encoder/+enc=utf8
+t/home/bma/.local/share/vifm/Trash/000_ 
+	/home/bma/ 
 
 # State:
 f

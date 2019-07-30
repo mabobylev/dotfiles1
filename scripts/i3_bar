@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/bash
 # vim:ts=4:sw=4:expandtab
 
 ## TODO:
@@ -100,15 +100,6 @@ function getTme() {
     echo -ne '{ "full_text":" '$tme'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
 }
 
-#function getUpd() {
-#    local chk_upd=$(find /tmp -iname 'upd_check' -cmin -360 | wc -l)
-#    local upd_cnt=$(head -1 /tmp/upd_check)
-#    [ -f "/usr/bin/yay" ] && [ $chk_upd -lt "1" ] && yay -Syy&
-#    [ $chk_upd -lt "1" ] && yay -Qu | wc -l > /tmp/upd_check
-#    [ "$upd_cnt" -gt 0 ] && COLORI3="$COL_RED" || COLORI3="$COL_INA"
-#    echo -ne '{ "full_text":" upd: '$upd_cnt'","color":"'$COLORI3'","border":"'$COLORI3'","border_top":0,"border_left":0,"border_right":0,"border_bottom":1 },'
-#}
-
 function getNet() {
     local eth=$(cat /sys/class/net/e*/operstate)
     local wif=$(cat /sys/class/net/w*/operstate)
@@ -123,6 +114,6 @@ function getNet() {
 
 while :;
 do
-    echo -e ',['$(Probel)$(getMoc)$(getUpd)$(getLang)$(getVol)$(getDay)$(getTme)$(getNet)']'
+    echo -e ',['$(Probel)$(getMoc)$(getLang)$(getVol)$(getDay)$(getTme)$(getNet)']'
     sleep 1
 done

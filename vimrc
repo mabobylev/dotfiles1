@@ -19,6 +19,8 @@ Plug 'ap/vim-css-color'
 Plug 'yggdroot/indentline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'mhinz/vim-startify'
+Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " Plug 'jiangmiao/auto-pairs'
 " Plug 'w0rp/ale'
@@ -80,6 +82,9 @@ let g:gruvbox_contrast_dark="hard"
 color gruvbox
 " set laststatus=2 showtabline=2
 " set autochdir
+set noshowmode
+set lazyredraw
+set ttyfast
 set magic
 set nu
 set rnu
@@ -121,6 +126,8 @@ set softtabstop=2           " Spaces 'feel' like tabs
 set suffixes+=.pyc          " Ignore these files when tab-completing
 set tabstop=2 shiftwidth=2 softtabstop=2
 set foldlevelstart=2
+"set foldmethod=syntax
+"set foldmethod=expr
 set noswapfile
 set nowritebackup           " No backups made while editing
 set whichwrap=b,s,<,>,[,]
@@ -192,13 +199,16 @@ nnoremap <F3> :syn sync fromstart<CR>
 noremap <F5> :TagbarOpenAutoClose<CR>
 " noremap <F5> :TagbarToggle<CR>
 
+" Toggle UndoTree
+noremap <F6> :UndotreeToggle<CR>
+
 " Editing vimrc
 nnoremap ,v :source $MYVIMRC<CR>
 nnoremap ,e :edit $MYVIMRC<CR>
 
 " Use the space key to toggle folds
-" nnoremap <space> za
-" vnoremap <space> zf
+nnoremap <leader> za
+vnoremap <leader> zf
 
 " Close all buffers except this one
 command! BufCloseOthers %bd|e#
@@ -222,10 +232,26 @@ function! AppendModeline()
   let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   call append(line("$"), l:modeline)
 endfunction
-nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+nnoremap <silent> <leader>ml :call AppendModeline()<CR>
 
 " Quick modeline insert
 nnoremap \m ggOvim: et nolist sw=4 ts=4 sts=4<ESC>
+
+"" Better tab
+" Create new tabs    \t
+nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>th :tabfirst<CR>
+nnoremap <leader>tj :tabNext<CR>
+nnoremap <leader>tk :tabprevious<CR>
+nnoremap <leader>tl :tablast<CR>
+nnoremap <leader>tq :tabclose<CR>
+
+"" Cycling buffers
+nnoremap <leader>bh :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bfirst<CR><CR>
+nnoremap <leader>bj :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR><CR>
+nnoremap <leader>bk :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR><CR>
+nnoremap <leader>bl :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:blast<CR><CR>
+nnoremap <leader>bq :bdelete<CR>
 
 " TAGS:
 " Создание файла тэгов (tags).

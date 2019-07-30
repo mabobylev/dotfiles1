@@ -5,24 +5,25 @@
 #    end
 #end
 #
-#if status --is-login
-#    set PATH $PATH /usr/bin /sbin
-#end
+if status --is-login
+  set -x PATH $PATH /usr/bin /sbin .local/bin
+  set -U EDITOR vim
+end
 
 function e
     eval $EDITOR $argv
 end
 
 function ev
-    eval $EDITOR ~/dotfiles/vimrc
+    eval $EDITOR ~/.config/vimrc
 end
 
 function ewm
-    eval $EDITOR ~/dotfiles/i3/config
+    eval $EDITOR ~/.config/i3/config
 end
 
-function yaupg
-    yaourt -Syyua --noconfirm
+function yupg
+    yaourt -Syyu --noconfirm
 end
 
 function weather
@@ -31,6 +32,10 @@ end
 
 function myip
     curl ifconfig.co
+end
+
+function chtsh
+  curl -s "https://cht.sh/$argv[1]"
 end
 
 # vim: ft=sh:
