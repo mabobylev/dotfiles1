@@ -1,6 +1,5 @@
 " vim: fdm=marker foldenable sw=4 ts=4 sts=4
 " 'zo' to open folds, 'zc' to close, 'zn' to disable.
-
 let mapleader = " "
 
 filetype off
