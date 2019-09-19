@@ -48,7 +48,7 @@ set_from_resource $foregr foreground #000000
 set_from_resource $unfocus color8 #000000
 set_from_resource $focused color3 #000000
 set_from_resource $urgent  color4 #000000
-set $transp #28282898
+set $transp #28282890
 
 #Class                  Border      Background  Text     Indicator   Child indicator
 client.focused          $foregr     $backgr     $foregr  $foregr     $foregr
@@ -66,12 +66,14 @@ client.urgent           $urgent     $urgent     $backgr  $urgent     $urgent
 bar {
 	position top
 	mode dock
-	modifier None
+#	modifier None
+	i3bar_command i3bar
+#--transparency
 	strip_workspace_numbers yes
 	separator_symbol "⟨"
 	status_command ~/.bin/i3_bar
-	tray_output primary
-	tray_padding 1
+#	tray_output primary
+#	tray_padding 1
 	colors {
 		background $transp
 		statusline $foregr

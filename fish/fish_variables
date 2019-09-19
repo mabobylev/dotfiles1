@@ -1,0 +1,48 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR EDITOR:vim
+SETUVAR --export LESS_TERMCAP_mb:\x1b\x5b01\x3b31m
+SETUVAR --export LESS_TERMCAP_md:\x1b\x5b01\x3b31m
+SETUVAR --export LESS_TERMCAP_me:\x1b\x5b0m
+SETUVAR --export LESS_TERMCAP_se:\x1b\x5b0m
+SETUVAR --export LESS_TERMCAP_so:\x1b\x5b01\x3b44\x3b33m
+SETUVAR --export LESS_TERMCAP_ue:\x1b\x5b0m
+SETUVAR --export LESS_TERMCAP_us:\x1b\x5b01\x3b32m
+SETUVAR __fish_classic_git_prompt_initialized:\x1d
+SETUVAR __fish_init_2_39_8:\x1d
+SETUVAR __fish_init_2_3_0:\x1d
+SETUVAR _fish_abbr_cdot:cd\x20/home/xaoc/dotfiles/
+SETUVAR _fish_abbr_gadd:git\x20add
+SETUVAR _fish_abbr_gco:git\x20checkout
+SETUVAR _fish_abbr_gcom:git\x20commit
+SETUVAR _fish_abbr_gpus:git\x20push
+SETUVAR _fish_abbr_gstat:git\x20status
+SETUVAR fish_color_autosuggestion:586e75
+SETUVAR fish_color_command:93a1a1
+SETUVAR fish_color_comment:586e75
+SETUVAR fish_color_cwd:green
+SETUVAR fish_color_cwd_root:red
+SETUVAR fish_color_end:268bd2
+SETUVAR fish_color_error:dc322f
+SETUVAR fish_color_escape:bryellow\x1e\x2d\x2dbold
+SETUVAR fish_color_history_current:\x2d\x2dbold
+SETUVAR fish_color_host:normal
+SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:bryellow
+SETUVAR fish_color_param:839496
+SETUVAR fish_color_quote:657b83
+SETUVAR fish_color_redirection:6c71c4
+SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_status:red
+SETUVAR fish_color_user:brgreen
+SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_greeting:\x1d
+SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_pager_color_completion:\x1d
+SETUVAR fish_pager_color_description:B3A06D\x1eyellow
+SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_user_abbreviations:gcom\x20git\x20commit\x1egco\x20git\x20checkout\x1egpus\x20git\x20push\x1egstat\x20git\x20status\x1ecdot\x20cd\x20/home/xaoc/dotfiles/\x1egadd\x20git\x20add
+SETUVAR fish_user_paths:/home/bma/\x2efzf/bin

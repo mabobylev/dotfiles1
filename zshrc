@@ -61,8 +61,8 @@ if [ "$EUID" -eq 0 ]; then
   bracket_o="${red}["
   bracket_c="${red}]"
 else
-  bracket_o="${black}["
-  bracket_c="${black}]"
+  bracket_o="${white}["
+  bracket_c="${white}]"
 fi
 
 PROMPT="${host}${bracket_o}${magenta}%2~${bracket_c}${reset} "

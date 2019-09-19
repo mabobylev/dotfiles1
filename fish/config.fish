@@ -6,7 +6,7 @@
 #end
 #
 if status --is-login
-  set -x PATH $PATH /usr/bin /sbin .local/bin
+  set -x PATH $PATH /usr/bin /sbin .bin
   set -U EDITOR vim
 end
 
@@ -31,8 +31,7 @@ function e
 end
 
 function ev
-<<<<<<< HEAD
-    eval $EDITOR ~/.config/vimrc
+    eval $EDITOR ~/.vimrc
 end
 
 function ewm
@@ -41,17 +40,10 @@ end
 
 function yupg
     yaourt -Syyu --noconfirm
-=======
-    eval $EDITOR ~/public/dotfiles/vimrc
-end
-
-function ei3
-    eval $EDITOR ~/public/dotfiles/i3/config
 end
 
 function yupg
     yay -Syyu --noconfirm
->>>>>>> bbcc8f74a4193e73896d3c11fbe04c013cc88614
 end
 
 function weather
